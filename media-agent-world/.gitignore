@@ -1,0 +1,10 @@
+# Không đăng cấu hình cá nhân lên GitHub
+.env
+.env.*
+!.env.example
+*.local
+*.log
+node_modules/
+__pycache__/
+.DS_Store
+Thumbs.db
