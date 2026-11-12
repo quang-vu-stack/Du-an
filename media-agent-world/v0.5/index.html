@@ -1,0 +1,1155 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#080e1b" />
+  <meta name="description" content="MEDIA Agent World V0.5: công ty truyền thông 3D với 25 Agent, nhiệm vụ tự chủ và Facebook/TikTok mô phỏng, chạy offline." />
+  <title>MEDIA — Agent World V0.5 | Autonomous Agents</title>
+  <style>
+:root{--bg:#090e1b;--panel:#101727;--panel-2:#141e30;--line:#243047;--muted:#8695ac;--soft:#b1bfd4;--white:#edf5ff;--teal:#36dfc9;--teal-dark:#153e45;--yellow:#ffc76d;--green:#4ae1a2;--blue:#68aaff;--danger:#ff7a8e;--purple:#bd96ff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--white);color-scheme:dark}
+*{box-sizing:border-box}html,body{height:100%;margin:0;min-width:300px}body{background:var(--bg);overflow:hidden}button,input,select{font:inherit}button{cursor:pointer;transition:background .16s,transform .16s,border-color .16s}button:active{transform:scale(.97)}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--teal);outline-offset:2px}button:disabled{opacity:.45;cursor:not-allowed}#app{height:100vh;min-height:650px;display:flex;flex-direction:column}strong,b{font-weight:700}h1,h2,h3,p{margin:0}.eyebrow{font-size:10px;letter-spacing:1.5px;color:var(--teal);font-weight:800}.topbar{height:81px;min-height:81px;background:#0d1422;display:flex;align-items:center;padding:0 25px;gap:32px;border-bottom:1px solid var(--line);z-index:4}.brand{display:flex;align-items:center;gap:12px;min-width:250px}.brand-mark{height:44px;width:44px;border-radius:13px;background:linear-gradient(130deg,#3cdebd,#178d9e);box-shadow:0 0 24px #0cc9b648;display:grid;place-items:center;font-size:24px;font-weight:1000;color:#082630;position:relative}.brand-star{position:absolute;right:-5px;top:-7px;font-size:15px;color:#fff}.brand strong{font-size:20px;letter-spacing:1px}.brand strong span{color:var(--teal)}.brand small{display:block;font-size:9px;letter-spacing:1.15px;color:#96a9bb;font-weight:700;margin-top:4px}.brand i{display:inline-block;width:3px;height:3px;background:var(--teal);vertical-align:middle;border-radius:100%;margin:0 5px}.top-stats{display:flex;align-items:center;justify-content:space-evenly;flex:1;gap:14px}.top-stat{padding:3px 20px;border-left:1px solid var(--line);min-width:110px}.top-stat>span{display:block;font-size:10px;font-weight:800;letter-spacing:1px;color:var(--muted);margin-bottom:5px}.top-stat strong{white-space:nowrap;font-size:18px}.top-stat em{font-style:normal;font-size:11px;color:var(--muted);font-weight:500}.top-user{display:flex;align-items:center;gap:10px;white-space:nowrap}.top-user strong{font-size:11px;letter-spacing:1px}.top-user small{display:block;color:var(--muted);font-size:9px;letter-spacing:.3px;margin-top:4px}.live-dot,.online-pip,.footer-dot{width:7px;height:7px;flex:none;border-radius:50%;background:var(--green);box-shadow:0 0 11px var(--green)}.ceo-avatar{background:linear-gradient(140deg,#1b5761,#2dbf9f);border:1px solid #51dcc2;color:white;font-size:11px;font-weight:900;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;margin-left:3px}
+.workspace{display:grid;grid-template-columns:minmax(250px,280px) minmax(350px,1fr) minmax(285px,330px);min-height:0;flex:1}.left-panel,.right-panel{background:var(--panel);min-height:0;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#384761 transparent}.left-panel{padding:24px 18px 25px;border-right:1px solid var(--line)}.right-panel{border-left:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden}.panel-head{padding:0 3px 15px}.panel-head h2{font-size:21px;margin:7px 0 5px}.panel-head p{font-size:11.5px;line-height:1.55;color:var(--muted)}.day-card{border:1px solid #2b4251;background:linear-gradient(115deg,#162e37,#141e2c);padding:14px 14px;display:flex;align-items:center;justify-content:space-between;border-radius:11px;margin:4px 0 23px}.day-card .eyebrow{color:#9bd3ca;font-size:9px}.day-card strong{display:block;margin-top:8px;font-size:16px}.time-orb{color:#49c4bb;font-size:32px;line-height:1}.section-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;color:#b9c9dc;font-weight:850;letter-spacing:1.1px;font-size:10px}.section-heading b{font-size:10px;background:#213c41;border-radius:6px;padding:5px 9px;color:var(--teal)}.section-heading small{color:var(--teal);letter-spacing:1.2px;font-size:9px}.section-space{margin-top:24px}.project-list{display:flex;flex-direction:column;gap:8px}.project-card{padding:13px 12px;border:1px solid #2a3650;background:#152035;border-radius:10px;text-align:left;color:var(--white);width:100%;position:relative}.project-card.active{background:#19293a;border-color:#41baa9;box-shadow:0 0 0 1px #14776955}.project-card .project-top{display:flex;align-items:center;justify-content:space-between;gap:7px;margin-bottom:6px}.project-card .project-type{font-weight:850;letter-spacing:1px;font-size:9px;color:#90b5bd}.project-card .project-state{font-size:9px;color:var(--teal);white-space:nowrap}.project-card h3{font-size:13px;line-height:1.3;margin-bottom:5px}.project-card p{font-size:10px;color:var(--muted);margin-bottom:11px}.project-progress-label{display:flex;justify-content:space-between;font-size:10px;color:#bdcee0;margin-bottom:6px}.project-progress-label b{color:var(--teal)}.track{height:6px;overflow:hidden;background:#243247;border-radius:9px}.track>div{height:100%;border-radius:10px;background:linear-gradient(90deg,#169b97,#54eed5);transition:width .45s}.track.green>div{background:linear-gradient(90deg,#2cbb94,#9ce9a2)}.track.blue>div{background:linear-gradient(90deg,#4879f1,#8dbaff)}.new-project{width:100%;background:#1a3437;border:1px dashed #347f78;color:#71e7d3;border-radius:9px;font-weight:800;padding:12px 8px;font-size:11px;margin-top:11px}.new-project:hover{background:#244449}.new-project span{font-size:17px;vertical-align:-1px;margin-right:5px}.performance-card{padding:15px 13px;border:1px solid #27374c;border-radius:10px;background:#151f30}.metric-row{display:flex;justify-content:space-between;font-size:10.5px;margin:0 0 7px;color:#aab7c9}.metric-row b{color:#e6f4ff}.performance-card .track{height:5px;margin-bottom:16px}.performance-card .track:last-child{margin-bottom:0}.activity-feed{display:flex;flex-direction:column;gap:9px}.activity-item{display:flex;align-items:flex-start;gap:9px;font-size:10px;line-height:1.5;color:#a9bacd}.activity-item .activity-icon{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;flex:none;background:#263c45;color:var(--teal);font-size:12px}.activity-item strong{color:#e4f2ff}.activity-item time{display:block;color:#677e99;font-size:9px;margin-top:2px}.pulse-dot{width:7px;height:7px;background:var(--teal);border-radius:50%;box-shadow:0 0 10px var(--teal)}
+.main-panel{display:flex;flex-direction:column;min-width:0;min-height:0;background:#080f20}.stage{flex:1;position:relative;min-height:300px;overflow:hidden;background:radial-gradient(ellipse at 48% 45%,#142c40 0%,#0b1b2c 38%,#07131f 90%)}.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none}.stage canvas:active{cursor:grabbing}.labels-layer,.speech-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden}.dept-label{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;background:#101f31dd;color:#e3f7fa;border:1px solid #64e5d244;padding:6px 9px;border-radius:6px;font-size:9px;letter-spacing:1.1px;font-weight:850;text-shadow:0 1px 5px #000;box-shadow:0 6px 16px #0004}.dept-label i{display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:5px;vertical-align:1px}.stage-top{position:absolute;top:21px;left:22px;right:21px;display:flex;justify-content:space-between;align-items:start;gap:12px;pointer-events:none}.stage-live{color:#aafcf0;background:#163f48b0;border:1px solid #337f81;display:inline-block;font-size:9px;font-weight:900;letter-spacing:1.8px;padding:7px 10px;border-radius:5px;margin-bottom:10px}.stage-live span{display:inline-block;width:6px;height:6px;background:var(--green);border-radius:100%;margin-right:5px}.stage-title h1{font-size:clamp(20px,2.5vw,34px);letter-spacing:1.5px;text-shadow:0 3px 10px #06131c}.stage-title h1 em{font-style:normal;color:var(--teal)}.stage-title p{font-size:11px;color:#b8cbd8;margin-top:5px;text-shadow:0 1px 8px #06131c}.camera-hint{font-size:10px;color:#c3d9e7;background:#0c2236bb;padding:10px 11px;border:1px solid #2f4256;border-radius:7px;text-align:center}.camera-hint span{color:#4ccfc0;margin:0 4px}.scene-bottom-left{position:absolute;left:20px;bottom:18px;display:flex;align-items:center;gap:6px;background:#0c2137bd;padding:9px 11px;border-radius:7px;font-size:10px;color:#afc4d3;border:1px solid #283c50}.scene-bottom-left strong{color:#fff;font-size:12px}.chat-mode-btn{position:absolute;bottom:18px;left:235px;background:#123640e5;border:1px solid #2c8580;color:#a9f8e8;padding:9px 11px;border-radius:7px;font-size:10px;font-weight:750}.chat-mode-btn:hover{background:#20535b}.scene-bottom-right{position:absolute;bottom:18px;right:18px;display:flex;gap:5px}.scene-bottom-right button{background:#10253adf;border:1px solid #365068;color:#dffeff;width:32px;height:32px;border-radius:7px;font-size:17px}.scene-bottom-right button:hover{background:#1e475c}.selected-marker{position:absolute;z-index:2;pointer-events:none;transform:translate(-50%,-100%);text-align:center;color:#79ffe1;text-shadow:0 3px 8px #001;font-size:30px;animation:bob 1.5s infinite ease-in-out}.selected-marker b{display:block;white-space:nowrap;font-size:10px;background:#0f3e44;border:1px solid var(--teal);color:white;border-radius:5px;padding:3px 6px;margin-top:-4px}.speech-bubble{position:absolute;transform:translate(-50%,-100%);background:#e6f9ff;color:#163043;white-space:normal;width:max-content;max-width:170px;padding:7px 9px;border-radius:9px 9px 9px 2px;font-size:9.5px;line-height:1.4;box-shadow:0 4px 14px #0008;opacity:.92;animation:slide .2s ease-out}.webgl-error{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#401e2a;color:#ffdce2;padding:20px;z-index:5;border-radius:10px;max-width:340px}.dept-bar{background:#101c2c;border-top:1px solid #26394e;border-bottom:1px solid #27394c;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;padding:9px 11px}.dept-tab{display:flex;align-items:center;justify-content:center;min-width:0;gap:7px;padding:10px 5px;border:1px solid transparent;border-radius:7px;background:transparent;color:#9caec2}.dept-tab:hover,.dept-tab.active{background:#1c3142;border-color:#2a5661;color:#f1feff}.dept-tab .dept-emoji{font-size:16px}.dept-tab strong{display:block;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dept-tab small{display:block;text-align:left;font-size:9px;color:#8198ae;margin-top:3px}.lower-controls{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;background:#0f1929}.ticker{display:flex;align-items:center;gap:9px;color:#9cbad0;min-width:0;font-size:11px}.ticker-icon{color:var(--teal);font-size:20px}.ticker div{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.speed-controls{display:flex;gap:4px;align-items:center;flex:none}.speed-controls span{font-size:9px;font-weight:850;color:var(--muted);margin-right:6px;letter-spacing:1px}.speed-controls button{background:#1c2a3e;border:1px solid #324056;color:#b3c9dd;font-size:11px;border-radius:6px;min-width:31px;height:28px}.speed-controls button.active{background:#175d61;color:#ccfff4;border-color:var(--teal)}
+.right-head{display:flex;align-items:center;justify-content:space-between;padding:22px 18px 15px}.right-head h2{font-size:19px;letter-spacing:-.25px;margin-top:6px}.right-head h2 span{color:var(--teal)}.head-icon{color:var(--teal);font-size:26px}.roster-controls{padding:0 16px 13px;display:flex;flex-direction:column;gap:9px}.search-box{display:flex;align-items:center;gap:7px;background:#19253a;border:1px solid #2e4057;color:#7d95ad;border-radius:8px;padding:0 10px;height:37px}.search-box span{font-size:19px}.search-box input{border:0;outline:0;background:transparent;color:var(--white);width:100%;font-size:11px}.search-box input::placeholder{color:#7d8ea6}.roster-controls select{height:35px;background:#19253a;color:#b8c9dd;border:1px solid #2e4057;border-radius:8px;padding:0 10px;width:100%;font-size:11px}.roster-header{padding:4px 18px 10px;display:flex;align-items:center;justify-content:space-between;font-size:10px;letter-spacing:1px;font-weight:850;color:#91a6b9}.roster-header b{color:var(--teal);font-size:10px}.roster{overflow-y:auto;min-height:100px;flex:0 1 35%;padding:0 12px;scrollbar-width:thin;scrollbar-color:#35465a transparent}.agent-row{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:transparent;border:1px solid transparent;border-radius:8px;padding:7px;color:var(--white)}.agent-row:hover{background:#1a2c41}.agent-row.selected{background:#1e3544;border-color:#267c7f}.agent-avatar{display:grid;place-items:center;width:34px;height:34px;border-radius:9px;flex:none;font-size:10px;font-weight:900;color:#fcffff;position:relative;border:1px solid #ffffff18}.agent-avatar>i{width:8px;height:8px;border-radius:50%;background:var(--green);position:absolute;right:-2px;bottom:-2px;border:2px solid #122034}.agent-avatar>i.resting{background:var(--yellow)}.agent-name{min-width:0;flex:1}.agent-name strong{display:block;font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.agent-name small{font-size:10px;color:#859bb1;display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.agent-row .agent-arrow{color:#617c94;font-size:19px}.agent-detail{margin:14px 13px 16px;padding:15px;background:linear-gradient(145deg,#192b3b,#142236);border-radius:11px;border:1px solid #315264;min-height:0;overflow:auto;flex:1;scrollbar-width:thin;scrollbar-color:#3b5469 transparent}.detail-top{display:flex;align-items:center;gap:11px}.detail-top .agent-avatar{width:43px;height:43px;font-size:12px}.detail-top h3{font-size:15px}.detail-top p{margin-top:4px;color:#98b6c3;font-size:10px}.detail-status{font-size:9px;white-space:nowrap;background:#1d534b;color:#91eed2;padding:6px 8px;border-radius:16px;margin-left:auto}.detail-status.resting{background:#4c3a23;color:#ffd78b}.detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:14px 0}.detail-mini{background:#101e30;border:1px solid #2d4254;padding:9px 6px;text-align:center;border-radius:8px}.detail-mini strong{display:block;font-size:14px;color:#e2fff8}.detail-mini small{display:block;color:#91aabc;font-size:9px;margin-top:5px}.detail-heading{font-size:9px;color:#9bb4c6;letter-spacing:1.1px;margin-bottom:9px;font-weight:850}.current-task{padding:12px;background:#0e2031;border:1px solid #304a5e;border-radius:8px}.task-name{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;margin-bottom:9px}.task-name strong{line-height:1.35}.task-name b{color:var(--teal);font-size:10px;white-space:nowrap}.current-task p{font-size:9px;color:#829bb0;margin-top:9px}.detail-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:12px 0}.detail-actions button{background:#21364a;color:#d6f7fc;border:1px solid #39566d;border-radius:7px;padding:10px 5px;font-size:10px;font-weight:750}.detail-actions button.primary{background:#14746e;border-color:#31b9aa;color:#faffff}.detail-actions button:hover{filter:brightness(1.18)}.chat-card{border:1px solid #33495c;background:#112438;border-radius:9px;overflow:hidden}.chat-head{display:flex;align-items:center;justify-content:space-between;background:#1e3446;padding:10px 11px;font-weight:850;font-size:10px;color:#cfe5e8}.chat-head span{color:var(--teal);font-size:9px}.chat-messages{min-height:80px;max-height:165px;overflow-y:auto;padding:11px;display:flex;flex-direction:column;gap:8px}.chat-msg{max-width:92%;font-size:10px;line-height:1.5;border-radius:9px;padding:7px 9px;background:#2a4154;color:#dbeaf1;align-self:flex-start;word-break:break-word}.chat-msg.user{align-self:flex-end;background:#186e6b;color:#f5fffd}.chat-compose{display:flex;border-top:1px solid #31475a;padding:7px;gap:6px}.chat-compose input{flex:1;min-width:0;background:#1c3143;border:1px solid #3c5666;color:white;border-radius:6px;padding:9px;font-size:10px}.chat-compose button{background:#1c8d80;color:#fff;border:0;border-radius:6px;width:33px;font-size:15px}.placeholder{font-size:12px;color:var(--muted)}
+.footer{height:50px;min-height:50px;background:#0a111e;border-top:1px solid #253248;display:flex;justify-content:space-between;align-items:center;padding:0 23px;gap:15px}.footer>div{display:flex;gap:7px;align-items:center;color:#71849a;font-size:9px;letter-spacing:.55px}.footer-dot{height:6px;width:6px;margin-right:4px}.footer button{color:#b4c8dc;background:transparent;border:1px solid #2f4258;border-radius:6px;padding:7px 10px;font-size:10px;white-space:nowrap}.footer button:hover{background:#1d3348;color:white}.modal-backdrop{position:fixed;inset:0;background:#030816d9;z-index:20;display:grid;place-items:center;padding:14px;backdrop-filter:blur(7px)}[hidden]{display:none!important}.modal{background:#132034;border:1px solid #3a6070;border-radius:16px;width:min(540px,100%);max-height:min(90vh,720px);overflow-y:auto;box-shadow:0 20px 80px #000b}.modal-head{display:flex;align-items:center;justify-content:space-between;padding:21px 23px;border-bottom:1px solid #2e4354}.modal-head h2{margin-top:7px;font-size:20px}.modal-close{border:1px solid #3c5265;background:#1b2c3d;color:#d9eafa;font-size:22px;width:35px;height:35px;border-radius:8px}.modal-content{padding:22px 23px 24px}.modal-desc{font-size:12px;line-height:1.7;color:#a2b6c9;margin-bottom:17px}.modal-label{display:block;font-size:10px;color:#a4becb;letter-spacing:1px;font-weight:850;margin-bottom:8px}.modal-input,.modal-select{background:#1b2b40;color:white;border:1px solid #3f5b70;padding:12px;width:100%;border-radius:8px;font-size:12px;margin-bottom:16px}.modal-cta{width:100%;padding:13px;border-radius:8px;border:1px solid #40c4b3;background:#177c75;color:white;font-weight:800;font-size:12px}.modal-cta:hover{background:#1e968c}.choice-list{display:flex;flex-direction:column;gap:8px;margin-bottom:17px}.choice{display:flex;justify-content:space-between;align-items:center;text-align:left;background:#1a2e43;border:1px solid #355168;padding:13px 14px;color:white;border-radius:9px;gap:10px}.choice:hover,.choice.selected{border-color:#39cdbd;background:#214251}.choice strong{display:block;font-size:12px;margin-bottom:5px}.choice small{color:#91a9b8;font-size:10px}.choice b{color:var(--teal);font-size:11px;white-space:nowrap}.report-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}.report-tile{padding:15px;border:1px solid #344c5b;background:#182b3d;border-radius:9px}.report-tile small{display:block;color:#8ca9b9;font-size:10px;margin-bottom:9px}.report-tile strong{font-size:21px}.report-note{font-size:11px;line-height:1.7;background:#112736;padding:12px;border-left:3px solid var(--teal);color:#b4d3d4;border-radius:4px;margin:12px 0 17px}.report-table{width:100%;font-size:11px;border-collapse:collapse;margin:10px 0 18px}.report-table th,.report-table td{padding:10px;border-bottom:1px solid #294052;text-align:left}.report-table th{color:#8baabd;font-weight:700}.report-table td:last-child{text-align:right;color:var(--teal)}#toast-layer{position:fixed;right:18px;bottom:65px;z-index:30;display:flex;flex-direction:column;gap:8px;pointer-events:none}.toast{background:#164047;color:#e6fffc;box-shadow:0 7px 25px #0008;border:1px solid #42bfb6;border-radius:9px;max-width:340px;padding:12px 16px;font-size:11px;line-height:1.5;animation:slide .25s ease-out}.toast.error{background:#49303a;border-color:#d5768c;color:#fff}.flash{animation:flash .6s}.empty-roster{color:#92a5ba;text-align:center;padding:20px;font-size:11px}
+@keyframes slide{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}@keyframes bob{50%{transform:translate(-50%,-107%)}}@keyframes flash{50%{filter:brightness(1.8)}}
+@media(max-width:1260px){.workspace{grid-template-columns:240px minmax(300px,1fr) 290px}.topbar{gap:16px;padding:0 14px}.brand{min-width:215px}.brand strong{font-size:18px}.top-stat{min-width:90px;padding:3px 11px}.top-stat strong{font-size:15px}.top-user small{display:none}.camera-hint{display:none}.dept-tab strong{font-size:9px}}
+@media(max-width:1020px){body{overflow:auto}#app{min-height:100vh;height:auto}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 310px;grid-template-rows:minmax(490px,auto) auto}.main-panel{grid-column:1;grid-row:1;min-height:530px}.stage{min-height:400px}.left-panel{grid-column:1;grid-row:2;overflow:visible;border:0;display:block}.right-panel{grid-column:2;grid-row:1/3;max-height:none;overflow:visible}.roster{flex:none;max-height:350px}.agent-detail{flex:none;overflow:visible}.top-user{display:none}.top-stats{justify-content:end}.footer{height:auto;min-height:50px;flex-wrap:wrap;padding:12px}.top-stat:nth-child(4){display:none}}
+@media(max-width:650px){.workspace{display:flex;flex-direction:column}.topbar{height:auto;min-height:72px;flex-wrap:wrap;gap:10px;padding:12px}.brand{min-width:0;flex:1}.brand-mark{width:39px;height:39px}.brand strong{font-size:18px}.brand small{font-size:8px}.top-stats{order:2;width:100%;justify-content:space-between}.top-stat{padding:6px 8px;min-width:0}.top-stat:nth-child(4){display:block}.top-stat>span{font-size:8px}.top-stat strong{font-size:13px}.top-stat em{font-size:8px}.main-panel{min-height:520px}.stage{height:420px;min-height:420px;flex:none}.stage-top{top:13px;left:13px}.stage-live{font-size:8px}.stage-title h1{font-size:21px}.stage-title p{font-size:10px}.dept-bar{padding:6px 4px;gap:2px}.dept-tab{flex-direction:column;gap:4px;padding:6px 2px}.dept-tab strong{font-size:8px;text-align:center}.dept-tab small{display:none}.lower-controls{flex-wrap:wrap;gap:8px}.ticker{font-size:10px;max-width:100%}.right-panel{overflow:visible}.roster{max-height:310px}.left-panel{padding:18px}.footer{gap:12px;justify-content:center}.footer>div:first-child{display:none}.footer>div:last-child{flex-wrap:wrap;justify-content:center}.speech-bubble{max-width:115px;font-size:8px}.dept-label{padding:4px 5px;font-size:7px}.scene-bottom-left{left:8px;bottom:9px}.scene-bottom-right{right:8px;bottom:9px}.chat-mode-btn{left:8px;bottom:53px;padding:7px 8px;font-size:9px}}
+@media(max-width:650px){.main-panel{order:0}.left-panel{order:1}.right-panel{order:2}}
+@media(max-width:650px){.topbar .top-stats{flex:0 0 100%;width:100%;gap:1px;justify-content:space-between}.topbar .brand{flex:0 0 100%}.topbar .top-stat{flex:1;padding:5px 6px}.topbar .top-stat:first-child{border-left:0}}
+
+
+/* iOS document preview / JavaScript-disabled safety view */
+.static-office{display:block;position:absolute;inset:80px 12px 55px;overflow:auto;padding:12px;background:linear-gradient(140deg,#102a3a,#102035);border:1px solid #31546a;border-radius:12px;z-index:4}
+.static-office h3{font-size:16px;color:#dffdf6;margin:0 0 8px}.static-office p{font-size:12px;color:#a9c9d5;line-height:1.5;margin:0 0 12px}.static-rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:9px}.static-room{border:1px solid #3a6472;border-radius:9px;background:#1b3547;padding:10px;color:#d9fbff}.static-room b{font-size:12px;display:block;margin-bottom:8px}.static-desk{display:flex;gap:6px;flex-wrap:wrap}.static-desk span{background:#31546a;border:1px solid #5a8990;border-radius:7px;padding:7px;font-size:18px}.static-alert{color:#ffe5a0!important}
+.static-roster{display:block;padding:12px;color:#cdebf0;font-size:12px;line-height:1.8}.static-roster div{border-bottom:1px solid #294357;padding:5px 0}
+@media(max-width:700px){.static-office{inset:65px 8px 50px}.static-rooms{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* V0.3 — Virtual social channels & media approvals. */
+.channel-box{border:1px solid #2b5263;background:linear-gradient(130deg,#142f3d,#151f32);border-radius:12px;padding:12px;margin-top:8px}
+.channel-line{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 2px;color:#c2e1e9;font-size:11px;border-bottom:1px solid #244252}
+.channel-line b{color:#7ce5d5;font-size:13px;font-variant-numeric:tabular-nums}
+.channel-overview{display:flex;gap:12px;justify-content:space-between;margin:12px 0;color:#9eb3c6;font-size:10px}.channel-overview strong{color:#ffdf94}
+.channel-btn{width:100%;padding:11px 9px;background:#28665e;border:1px solid #4cb2a5;border-radius:9px;color:#fff;font-weight:800;font-size:11px;cursor:pointer}.channel-btn:hover{background:#33786e}
+.channel-disclaimer{color:#7991a5;line-height:1.5;font-size:9px;margin:10px 1px 0}
+.post-row{border:1px solid #30465b;border-radius:10px;background:#152338;padding:12px;margin:10px 0;color:#dceafa}
+.post-top{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:10px;color:#80d5cd}.post-row h4{margin:9px 0 5px;font-size:13px}.post-row p{font-size:11px;line-height:1.55;color:#bbc8d7;margin:0 0 9px}.post-meta{color:#93a8bc;font-size:10px}.post-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.post-actions button{border:1px solid #37786f;color:#e7fff9;background:#20594f;border-radius:7px;padding:8px 10px;cursor:pointer;font-size:11px;font-weight:750}.post-actions button.secondary{background:#2b3348;border-color:#4b5770;color:#d8deef}
+.sim-note{font-size:11px;line-height:1.6;color:#a8bbcb;margin-bottom:13px}.social-empty{padding:16px;border:1px dashed #426276;border-radius:9px;color:#aabdd0;font-size:11px}
+
+/* MEDIA WORLD V0.5 additions */
+.autonomy-btn{left:235px;bottom:55px;border-color:#5a7496;background:#1b2b46e8;color:#d5e6ff}
+.autonomy-btn.off{background:#3d3040;color:#ffccd9;border-color:#9b5d72}
+.agent-ai-panel{background:#111e30;border:1px solid #375264;border-radius:9px;padding:11px;margin:10px 0 13px}
+.agent-ai-head{display:flex;justify-content:space-between;align-items:center;color:#76e8d5;font-size:10px;font-weight:850;letter-spacing:.5px}
+.agent-ai-head b{font-size:10px;color:#e4f0ff;letter-spacing:0;max-width:50%;text-align:right}
+.agent-ai-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.agent-ai-metrics div{background:#1a3140;padding:8px;border-radius:6px;font-size:10px;color:#99b5c8}
+.agent-ai-metrics strong{display:block;font-size:16px;color:#eefaff;margin-top:3px}
+.agent-ai-panel summary{cursor:pointer;color:#b4dace;font-size:10px;font-weight:800}
+.agent-ai-panel li{font-size:10px;color:#a8bcd0;margin:5px 0;line-height:1.4}
+.agent-ai-panel ul{padding-left:17px;margin:8px 0 0}
+.agent-state-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#45e0c4;margin-right:4px}
+@media(max-width:650px){.autonomy-btn{left:8px;bottom:89px;padding:7px 8px;font-size:9px}}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark"><span>M</span><span class="brand-star">✦</span></div><div><strong>MEDIA<span>WORLD</span></strong><small>AGENT WORLD V0.5 <i></i> GEMINI × CODEX</small></div></div>
+    <div class="top-stats">
+      <div class="top-stat"><span>NGÂN SÁCH</span><strong id="money">10,00 tỷ ₫</strong></div>
+      <div class="top-stat"><span>DANH TIẾNG</span><strong><span id="reputation">72</span><em>/100</em></strong></div>
+      <div class="top-stat"><span>NHÂN SỰ</span><strong><span id="agent-count">25</span><em> AI Agents</em></strong></div>
+      <div class="top-stat"><span>TIẾN ĐỘ</span><strong id="avg-progress">0%</strong></div>
+    </div>
+    <div class="top-user"><span class="live-dot"></span><div><strong>CEO CONTROL</strong><small>QUYỀN QUẢN TRỊ CAO NHẤT</small></div><div class="ceo-avatar">CEO</div></div>
+  </header>
+
+  <div class="workspace">
+    <aside class="left-panel">
+      <div class="panel-head"><div class="eyebrow">TRUNG TÂM ĐIỀU HÀNH</div><h2>Tổng quan công ty</h2><p>Studio truyền thông 3D — nền tảng ảo, nhân viên tự làm việc.</p></div>
+      <div class="day-card"><div><span class="eyebrow">THỜI GIAN TRONG GAME</span><strong id="game-time">Ngày 01 · 09:00</strong></div><span class="time-orb">◷</span></div>
+      <div class="section-heading"><span>CHIẾN DỊCH ĐANG CHẠY</span><b id="project-count">03</b></div>
+      <div id="projects" class="project-list"></div>
+      <button id="new-project" class="new-project"><span>＋</span> Khởi tạo chiến dịch mới</button>
+      <div class="section-heading section-space"><span>HIỆU SUẤT CÔNG TY</span><small>REAL-TIME</small></div>
+      <div class="performance-card"><div class="metric-row"><span>Tinh thần đội ngũ</span><b id="team-mood">85%</b></div><div class="track"><div id="team-mood-bar" style="width:85%"></div></div><div class="metric-row"><span>Năng lượng nhân sự</span><b id="team-energy">80%</b></div><div class="track green"><div id="team-energy-bar" style="width:80%"></div></div><div class="metric-row"><span>Độ hài lòng khách hàng</span><b id="satisfaction">78%</b></div><div class="track blue"><div id="satisfaction-bar" style="width:78%"></div></div></div>
+      <div class="section-heading section-space"><span>FACEBOOK / TIKTOK ẢO</span><small>SIMULATION</small></div>
+      <div class="channel-box" id="channel-box">
+        <div class="channel-line"><span>◉ Facebook ảo</span><b id="fb-reach">0</b></div>
+        <div class="channel-line"><span>♪ TikTok ảo</span><b id="tt-reach">0</b></div>
+        <div class="channel-overview"><span>Chờ CEO duyệt <strong id="pending-count">0</strong></span><span>Đã phát <strong id="published-count">0</strong></span></div>
+        <button id="channel-btn" class="channel-btn">▣ Trung tâm nội dung & duyệt bài</button>
+        <p class="channel-disclaimer">Dữ liệu giả lập hoàn toàn. Không kết nối tài khoản mạng xã hội thật.</p>
+      </div>
+      <div class="section-heading section-space"><span>HOẠT ĐỘNG MỚI NHẤT</span><span class="pulse-dot"></span></div>
+      <div id="activity-feed" class="activity-feed"></div>
+    </aside>
+
+    <main class="main-panel">
+      <div class="stage" id="stage">
+        <div class="static-office" id="static-office"><h3>🏢 MEDIA WORLD — Văn phòng 25 Agent</h3><p class="static-alert">Bạn đang xem file bằng trình xem trước không hỗ trợ chạy game. Để chơi tương tác, hãy mở file bằng trình duyệt trên máy tính hoặc chạy qua máy chủ web.</p><div class="static-rooms"><div class="static-room"><b>📝 Nội dung & Sáng tạo</b><div class="static-desk"><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span></div><small>5 nhân viên</small></div><div class="static-room"><b>📣 PR & Quan hệ công chúng</b><div class="static-desk"><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span></div><small>5 nhân viên</small></div><div class="static-room"><b>🎬 Video & Sản xuất</b><div class="static-desk"><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span></div><small>5 nhân viên</small></div><div class="static-room"><b>📊 Digital Marketing</b><div class="static-desk"><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span></div><small>5 nhân viên</small></div><div class="static-room"><b>💡 Chiến lược & Dự án</b><div class="static-desk"><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span><span>🧑‍💻</span></div><small>5 nhân viên</small></div></div></div><noscript><style>.static-office,.static-roster{display:block!important}.stage canvas{display:none!important}
+/* MEDIA WORLD V0.5 additions */
+.autonomy-btn{left:235px;bottom:55px;border-color:#5a7496;background:#1b2b46e8;color:#d5e6ff}
+.autonomy-btn.off{background:#3d3040;color:#ffccd9;border-color:#9b5d72}
+.agent-ai-panel{background:#111e30;border:1px solid #375264;border-radius:9px;padding:11px;margin:10px 0 13px}
+.agent-ai-head{display:flex;justify-content:space-between;align-items:center;color:#76e8d5;font-size:10px;font-weight:850;letter-spacing:.5px}
+.agent-ai-head b{font-size:10px;color:#e4f0ff;letter-spacing:0;max-width:50%;text-align:right}
+.agent-ai-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.agent-ai-metrics div{background:#1a3140;padding:8px;border-radius:6px;font-size:10px;color:#99b5c8}
+.agent-ai-metrics strong{display:block;font-size:16px;color:#eefaff;margin-top:3px}
+.agent-ai-panel summary{cursor:pointer;color:#b4dace;font-size:10px;font-weight:800}
+.agent-ai-panel li{font-size:10px;color:#a8bcd0;margin:5px 0;line-height:1.4}
+.agent-ai-panel ul{padding-left:17px;margin:8px 0 0}
+.agent-state-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#45e0c4;margin-right:4px}
+@media(max-width:650px){.autonomy-btn{left:8px;bottom:89px;padding:7px 8px;font-size:9px}}
+</style></noscript>
+        <canvas id="scene" aria-label="Văn phòng 3D, kéo để xoay góc nhìn, cuộn để phóng to, nhấp nhân viên để chọn"></canvas>
+        <div id="labels-layer" class="labels-layer"></div>
+        <div id="selected-marker" class="selected-marker" hidden><span>⌄</span><b></b></div>
+        <div id="speech-layer" class="speech-layer"></div>
+        <div id="webgl-error" class="webgl-error" hidden>Trình duyệt không khởi tạo được WebGL. Hãy mở bằng Chrome hoặc Edge và bật tăng tốc phần cứng.</div>
+        <div class="stage-top">
+          <div class="stage-title"><span class="stage-live"><span></span> LIVE 3D WORLD</span><h1>MEDIA WORLD <em>HQ</em></h1><p>25 Agent có lịch hành vi, trí nhớ, tự phối hợp · 5 phòng ban · mạng xã hội ảo.</p></div>
+          <div class="camera-hint">✥ Kéo để xoay <span>·</span> ⌕ Cuộn để zoom <span>·</span> Nhấp để chọn</div>
+        </div>
+        <div class="scene-bottom-left"><span class="online-pip"></span><strong id="working-count">25</strong><span>nhân viên đang hoạt động</span></div>
+        <button id="chat-mode-btn" class="chat-mode-btn" title="Điều chỉnh tần suất trò chuyện tự động của các AI Agent">💬 Tự trò chuyện: Thông minh</button><button id="autonomy-btn" class="chat-mode-btn autonomy-btn" title="Cho nhân viên tự quyết định các hoạt động trong game">🤖 Agent tự chủ: BẬT</button>
+        <div class="scene-bottom-right"><button id="zoom-in" title="Phóng to">＋</button><button id="zoom-out" title="Thu nhỏ">－</button><button id="reset-camera" title="Đặt lại góc nhìn">⌖</button></div>
+      </div>
+      <div class="dept-bar" id="dept-bar"></div>
+      <div class="lower-controls"><div class="ticker"><span class="ticker-icon">◈</span><div id="ticker-message">Đế chế truyền thông của bạn đã sẵn sàng vận hành.</div></div><div class="speed-controls"><span>TỐC ĐỘ</span><button data-speed="0" title="Tạm dừng">Ⅱ</button><button data-speed="1" class="active">1×</button><button data-speed="3">3×</button><button data-speed="6">6×</button></div></div>
+    </main>
+
+    <aside class="right-panel">
+      <div class="right-head"><div><span class="eyebrow">AI AGENT MANAGEMENT</span><h2>Đội ngũ sáng tạo <span>✦</span></h2></div><div class="head-icon">◉</div></div>
+      <div class="roster-controls"><label class="search-box"><span>⌕</span><input id="agent-search" type="search" autocomplete="off" placeholder="Tìm nhân viên hoặc vị trí..." /></label><select id="dept-filter" aria-label="Lọc phòng ban"><option value="all">Tất cả phòng ban</option></select></div>
+      <div class="roster-header"><span>DANH SÁCH NHÂN SỰ</span><b id="roster-count">25 / 25</b></div>
+      <div class="roster" id="roster"></div><div class="static-roster" id="static-roster"><strong>25 AI Agent · 5 phòng ban</strong><div>📝 Nội dung & Sáng tạo: 5 nhân viên</div><div>📣 PR & Quan hệ công chúng: 5 nhân viên</div><div>🎬 Video & Sản xuất: 5 nhân viên</div><div>📊 Digital Marketing: 5 nhân viên</div><div>💡 Chiến lược & Dự án: 5 nhân viên</div></div>
+      <section class="agent-detail" id="agent-detail"><p class="placeholder">Chọn một AI Agent để quản lý.</p></section>
+    </aside>
+  </div>
+  <footer class="footer"><div><span class="footer-dot"></span> V0.5 AGENT ENGINE · MÔ PHỎNG OFFLINE · KHÔNG API TRẢ PHÍ</div><div><button id="meeting-btn">◈ Triệu tập họp 25 Agent</button><button id="report-btn">▤ Báo cáo CEO</button><button id="save-btn">⇩ Xuất bản lưu</button><button id="import-btn">⇧ Nhập bản lưu</button><input id="import-file" type="file" accept=".json,application/json" hidden><button id="reset-btn">↺ Chơi lại</button></div></footer>
+</div>
+<div id="toast-layer" aria-live="polite"></div>
+<div id="modal-backdrop" class="modal-backdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><div><span class="eyebrow" id="modal-kicker">CEO CONTROL</span><h2 id="modal-title">Chi tiết</h2></div><button id="close-modal" class="modal-close" aria-label="Đóng">×</button></div><div id="modal-content" class="modal-content"></div></div></div>
+<script>
+document.getElementById("static-office").style.display="none";document.getElementById("static-roster").style.display="none";
+/* MEDIA AGENT WORLD V0.5 - deterministic-rule agent simulation; no API/LLM requests.
+   Deliberately independent of DOM, canvas, storage and external services. */
+(function (root, factory) {
+  const api = factory();
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  if (root) root.MediaAgentEngine = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+  const clamp=(v,l,h)=>Math.max(l,Math.min(h,v));
+  const number=(v,d)=>Number.isFinite(v)?v:d;
+  const STATUS={working:'Đang làm việc',walking:'Đang di chuyển',resting:'Đang nghỉ',meeting:'Đang họp',collaborating:'Hỗ trợ đồng nghiệp',socializing:'Đang trò chuyện',reporting:'Báo cáo trưởng phòng',idle:'Chờ nhiệm vụ'};
+  const MAX_SHORT=10, MAX_LONG=14,MAX_HISTORY=18;
+  const ROOMS={
+    content:{x:-10.6,z:-5.5,w:10,h:8.1},pr:{x:0,z:-5.5,w:10,h:8.1},video:{x:10.6,z:-5.5,w:10,h:8.1},
+    digital:{x:-7.8,z:5.25,w:14.5,h:8.2},data:{x:7.8,z:5.25,w:14.5,h:8.2}
+  };
+  const DESK_SLOTS=[[-2.85,-1.35],[0,-1.35],[2.85,-1.35],[-1.4,1.78],[1.4,1.78]];
+  const grid={step:.6,minX:-16.8,minZ:-11.7,nx:57,nz:40};
+  const cell=(x,z)=>({i:clamp(Math.round((x-grid.minX)/grid.step),0,grid.nx-1),j:clamp(Math.round((z-grid.minZ)/grid.step),0,grid.nz-1)});
+  const point=(i,j)=>({x:grid.minX+i*grid.step,z:grid.minZ+j*grid.step});
+  const walls=[];
+  Object.values(ROOMS).forEach(room=>{
+    const entryZ=room.z<0?room.z+room.h/2-.35:room.z-room.h/2+.35;
+    // Door gap across each room frontage: prevents agents walking through solid wall.
+    walls.push({x:room.x,z:entryZ,w:room.w-.5,h:.15,doorX:room.x,doorW:2.25});
+    for(const side of [-1,1])walls.push({x:room.x+side*(room.w/2-.26),z:room.z,w:.12,h:room.h-.2});
+  });
+  function blocked(x,z){
+    if(x < -16.6||x>16.6||z < -11.15||z>11.4)return true;
+    for(const wall of walls){
+      if(Math.abs(z-wall.z)<wall.h/2+.16&&Math.abs(x-wall.x)<wall.w/2+.14){
+        if(!('doorX' in wall)||Math.abs(x-wall.doorX)>wall.doorW/2)return true;
+      }
+    }
+    for(const room of Object.values(ROOMS)){
+      for(const [dx,dz] of DESK_SLOTS){
+        const tx=room.x+dx,tz=room.z+dz;
+        if(Math.abs(x-tx)<.83 && Math.abs(z-tz)<.51)return true;
+      }
+    }
+    // Meeting table, couches and reception counter. Positions are matched to renderer.
+    if(Math.abs(x)<1.94 && Math.abs(z-.05)<.62)return true;
+    if(Math.abs(x+4.4)<.91&&Math.abs(z)<.9)return true;
+    if(Math.abs(x-4.4)<.91&&Math.abs(z)<.9)return true;
+    if(Math.abs(x+15)<1.15&&Math.abs(z)<.6)return true;
+    if(Math.abs(x-15)<.8&&Math.abs(z)<.7)return true;
+    return false;
+  }
+  function findPath(from,to){
+    const s=cell(from.x,from.z),e=cell(to.x,to.z);
+    // Small-grid A*. Every node represents a safe walkable region of the office.
+    const key=(i,j)=>j*grid.nx+i,start=key(s.i,s.j),goal=key(e.i,e.j);
+    const open=[start],came=new Map(),g=new Map([[start,0]]),f=new Map([[start,Math.hypot(e.i-s.i,e.j-s.j)]]),seen=new Set();
+    let expanded=0,final=null;
+    while(open.length&&expanded++<2600){
+      let best=0;for(let i=1;i<open.length;i++)if((f.get(open[i])??Infinity)<(f.get(open[best])??Infinity))best=i;
+      const cur=open.splice(best,1)[0];if(cur===goal){final=cur;break;}if(seen.has(cur))continue;seen.add(cur);
+      const ci=cur%grid.nx,cj=Math.floor(cur/grid.nx);
+      for(const [di,dj] of [[1,0],[-1,0],[0,1],[0,-1]]){
+        const i=ci+di,j=cj+dj;if(i<0||j<0||i>=grid.nx||j>=grid.nz)continue;
+        const p=point(i,j),k=key(i,j);
+        if(k!==goal&&k!==start&&blocked(p.x,p.z))continue;
+        if(k===goal&&blocked(p.x,p.z))continue;
+        const next=g.get(cur)+1;if(next<(g.get(k)??Infinity)){
+          came.set(k,cur);g.set(k,next);f.set(k,next+Math.hypot(e.i-i,e.j-j));
+          if(!seen.has(k)&&!open.includes(k))open.push(k);
+        }
+      }
+    }
+    if(final===null)return [];
+    const rev=[];let cur=final;while(cur!==start&&rev.length<2600){const i=cur%grid.nx,j=Math.floor(cur/grid.nx);rev.push(point(i,j));cur=came.get(cur);if(cur===undefined)return [];}
+    rev.reverse();const waypoints=[];
+    for(let k=0;k<rev.length;k++){
+      const a=rev[k],b=rev[k+1],c=rev[k+2];
+      if(b&&c&&(Math.abs(a.x-b.x)<.01&&Math.abs(b.x-c.x)<.01||Math.abs(a.z-b.z)<.01&&Math.abs(b.z-c.z)<.01))continue;
+      waypoints.push(a);
+    }
+    waypoints.push({x:to.x,z:to.z});return waypoints;
+  }
+  function memory(agent,content,kind='short'){
+    if(!agent.ai)return;
+    const item={day:agent.ai.day||1,text:String(content).slice(0,160)};
+    const list=kind==='long'?agent.ai.longTerm:agent.ai.shortTerm;
+    if(list.at(-1)?.text!==item.text)list.push(item);
+    while(list.length>(kind==='long'?MAX_LONG:MAX_SHORT))list.shift();
+  }
+  function behavior(agent,mode,goal=null,minutes=0){
+    const ai=agent.ai;
+    ai.mode=mode;ai.left=Math.max(0,minutes);ai.goal=goal;
+    ai.route=goal?findPath({x:agent.x,z:agent.z},goal):[];
+    ai.phase=goal&&ai.route.length?'travel':'active';
+    ai.stuck=0;ai.cooldown=0;
+    return ai.phase!=='travel' || ai.route.length>0;
+  }
+  function initAgent(agent,day=1){
+    agent.stress=clamp(number(agent.stress,Math.round(12+(100-agent.mood)*.28)),0,100);
+    agent.socialNeed=clamp(number(agent.socialNeed,Math.round(32+agent.id%5*8)),0,100);
+    agent.history=Array.isArray(agent.history)?agent.history.slice(-MAX_HISTORY):[];
+    // Validate user-imported legacy task values; prevent zero-duration/infinite completion loops.
+    if(agent.task&&typeof agent.task==='object'){
+      agent.task.duration=clamp(number(agent.task.duration,30),8,240);
+      agent.task.progress=clamp(number(agent.task.progress,0),0,99.9);
+    }else agent.task=null;
+    agent.relationships=agent.relationships&&typeof agent.relationships==='object'&&!Array.isArray(agent.relationships)?agent.relationships:{};
+    const old=agent.ai&&typeof agent.ai==='object'?agent.ai:{};
+    agent.ai={mode:STATUS[old.mode]?old.mode:'working',phase:old.phase==='travel'?'travel':'active',left:Math.max(0,number(old.left,0)),goal:old.goal||null,route:Array.isArray(old.route)?old.route.filter(p=>Number.isFinite(p?.x)&&Number.isFinite(p?.z)).slice(0,200):[],day,
+      shortTerm:Array.isArray(old.shortTerm)?old.shortTerm.slice(-MAX_SHORT):[],longTerm:Array.isArray(old.longTerm)?old.longTerm.slice(-MAX_LONG):[],
+      cooldown:Math.max(0,number(old.cooldown,agent.id%4)),stuck:0,partner:old.partner,reportedAtCompleted:old.reportedAtCompleted};
+    if(agent.ai.phase==='travel'&&!agent.ai.route.length)agent.ai.phase='active';
+    agent.isWalking=false;
+    return agent;
+  }
+  function upgrade(state){
+    if(!Array.isArray(state.agents)||state.agents.length!==25)throw Error('Phải có đủ 25 nhân viên.');
+    for(const a of state.agents)initAgent(a,state.day);
+    state.auto=state.auto!==false;
+    state.agentEvents=Array.isArray(state.agentEvents)?state.agentEvents.slice(-80):[];
+    state.meeting=state.meeting&&typeof state.meeting==='object'&&state.meeting.active?state.meeting:null;
+    state.ledger=Array.isArray(state.ledger)?state.ledger.slice(-90):[];
+    state.ledgerOpening=number(state.ledgerOpening,state.cash-state.earned+state.spent);
+    state.version=3;
+    return state;
+  }
+  function status(agent){return agent.ai?.phase==='travel'?'Đang di chuyển · '+(STATUS[agent.ai.mode]??''):STATUS[agent.ai?.mode]??'Đang làm việc';}
+  function targetFor(agent,kind){
+    const room=ROOMS[agent.dept];
+    if(kind==='desk')return {x:agent.homeX,z:agent.homeZ};
+    if(kind==='rest'){
+      // Per-room corner clear of desks and wide of walls.
+      return {x:room.x+(agent.id%2?-1:1)*(room.w/2-1.35),z:room.z+(room.z<0?1.95:-1.75)};
+    }
+    if(kind==='lead'){
+      const leaderId=Math.floor(agent.id/5)*5;
+      const lead=room;
+      return {x:lead.x-.05,z:lead.z-.45};
+    }
+    if(kind==='water')return {x:agent.id%2?7.5:-7.5,z:-.1};
+    return {x:agent.homeX,z:agent.homeZ};
+  }
+  function meetingSlot(agent){
+    // Two corridor bands; keep clear of central meeting table and lounge seating.
+    const x=-12+agent.id;
+    return {x, z: Math.abs(x)<2.1?-.86:(agent.id%2===0?.6:-.7)};
+  }
+  function sendEvent(state,ctx,text,type='chat'){
+    state.agentEvents.push({day:state.day,minute:state.minutes,text,type});state.agentEvents=state.agentEvents.slice(-80);
+    ctx.log?.(text,type);
+  }
+  function relationship(a,b,delta){
+    a.relationships[b.id]=clamp(number(a.relationships[b.id],50)+delta,0,100);
+    b.relationships[a.id]=clamp(number(b.relationships[a.id],50)+delta,0,100);
+  }
+  function dialogue(state,ctx,a,b,kind){
+    const p=state.projects.find(p=>p.id===a.task?.projectId&&!p.completed);
+    const client=p?.client||'studio';
+    const templates={
+      help:[`Mình đang xử lý ${a.task?.label||'kế hoạch'}. ${b.name}, bạn hỗ trợ ${client} nhé?`,`Mình sẽ đối chiếu dữ liệu ${client} và phản hồi ${a.name}.`],
+      social:[`Hôm nay ${b.name} có ổn không? Mình vừa kết thúc một lượt làm việc.`,`Ổn nhé ${a.name}, nghỉ ngắn rồi mình tiếp tục dự án!`],
+      report:[`Báo cáo ${b.name}: ${a.task?.label||'đầu việc'} đang ở ${Math.round(a.task?.progress||0)}%.`,`Đã nhận báo cáo ${a.name}. Tiếp tục ưu tiên tiến độ khách hàng ${client}.`],
+      meeting:[`Mình đề xuất kiểm tra tiến độ khách hàng ${client} trước.`,`Đồng ý! Mình sẽ ghi lại việc cần xử lý và phân công cho đội.`]
+    };
+    const [say,reply]=templates[kind]||templates.social;
+    if(state.conversationMode!=='off')for(const [speaker,other,msg] of [[a,b,say],[b,a,reply]]){
+      speaker.chats.push({from:'agent',text:`[${kind==='social'?'Giờ nghỉ':'Phối hợp'} với ${other.name}] ${msg}`,day:state.day,minute:state.minutes});
+      speaker.chats=speaker.chats.slice(-20);memory(speaker,`${kind}: ${other.name} — ${msg}`);
+    }
+    if(state.conversationMode!=='off'){ctx.speak?.(a,say);ctx.speak?.(b,reply);}
+    relationship(a,b,kind==='help'?2:1);
+    a.socialNeed=clamp(a.socialNeed-26,0,100);b.socialNeed=clamp(b.socialNeed-16,0,100);
+    a.mood=clamp(a.mood+1,0,100);b.mood=clamp(b.mood+.8,0,100);
+    if(kind==='help'&&a.task){a.task.progress=Math.min(99,a.task.progress+1.8);b.skill=clamp(b.skill+.03,0,99);}
+    sendEvent(state,ctx,`${a.name} ↔ ${b.name}: ${kind==='help'?'hỗ trợ dự án':kind==='report'?'báo cáo tiến độ':kind==='meeting'?'thảo luận cuộc họp':'trò chuyện giờ nghỉ'}.`,'chat');
+  }
+  function requestMeeting(state,ctx,forced=true){
+    if(state.meeting?.active)return false;
+    const expires=state.day*1440+state.minutes+16;
+    state.meeting={active:true,until:expires,initiator:forced?'CEO':'Agent',topic:'Tiến độ chiến dịch',discussed:false};
+    for(const a of state.agents){behavior(a,'meeting',meetingSlot(a),16);a.ai.cooldown=20;}
+    sendEvent(state,ctx,`Cuộc họp ${forced?'CEO':'nội bộ'} bắt đầu: 25 Agent di chuyển tới khu vực hội nghị.`,'office');
+    memory(state.agents[0],'CEO triệu tập cuộc họp về tiến độ chiến dịch');
+    return true;
+  }
+  function concludeMeeting(state,ctx){
+    if(!state.meeting?.active)return;
+    state.meeting=null;
+    for(const a of state.agents){
+      a.mood=clamp(a.mood+2,0,100);a.stress=clamp(a.stress-4,0,100);
+      memory(a,'Cuộc họp đã thống nhất ưu tiên tiến độ hợp đồng','long');
+      behavior(a,'working',targetFor(a,'desk'),0);a.ai.cooldown=3;
+    }
+    sendEvent(state,ctx,'Cuộc họp kết thúc: nhân viên trở lại bàn làm việc.','office');
+  }
+  function choose(state,ctx,a){
+    const ai=a.ai;if(state.meeting?.active)return;
+    if(a.rest>0 || a.energy<21||a.stress>84){
+      a.rest=Math.max(a.rest,16);behavior(a,'resting',targetFor(a,'rest'),Math.max(a.rest,16));
+      ctx.speak?.(a,'Mình cần nghỉ để phục hồi năng lượng.');return;
+    }
+    if(!state.auto){if(ai.mode!=='working')behavior(a,'working',targetFor(a,'desk'));return;}
+    const coworker=state.agents.find(b=>b.id!==a.id&&b.dept===a.dept&&b.ai?.mode==='working');
+    if(state.conversationMode!=='off'&&a.socialNeed>(state.conversationMode==='frequent'?52:68)&&coworker&&ai.cooldown<=0){
+      behavior(a,'socializing',{x:coworker.homeX-.4,z:coworker.homeZ-.65},6);
+      ai.partner=coworker.id;ai.cooldown=16;return;
+    }
+    if(a.task?.progress>45 && a.task?.progress<80 && a.stress>46 && coworker&&ai.cooldown<=0){
+      behavior(a,'collaborating',{x:coworker.homeX-.35,z:coworker.homeZ-.7},5);
+      ai.partner=coworker.id;ai.cooldown=13;return;
+    }
+    if(a.completed>0&&a.completed%4===0&&ai.reportedAtCompleted!==a.completed&&a.id%5!==0){
+      const leader=state.agents[Math.floor(a.id/5)*5];behavior(a,'reporting',{x:leader.homeX+.3,z:leader.homeZ-.75},4);
+      ai.partner=leader.id;ai.reportedAtCompleted=a.completed;return;
+    }
+    if(!a.task){a.task=ctx.newTask?.(a)||null; if(!a.task){behavior(a,'idle',targetFor(a,'desk'),8);return;}}
+    behavior(a,'working',targetFor(a,'desk'));ai.cooldown=6+(a.id%6)*1.3;
+  }
+  function advanceMovement(a,minutes){
+    const ai=a.ai;a.isWalking=false;
+    if(ai.phase!=='travel'||!ai.route.length)return;
+    let available=Math.max(0,minutes)*1.18;
+    while(available>0&&ai.route.length){
+      const dest=ai.route[0],dist=Math.hypot(dest.x-a.x,dest.z-a.z);
+      if(dist<.035){a.x=dest.x;a.z=dest.z;ai.route.shift();continue;}
+      const move=Math.min(dist,available);a.x+=((dest.x-a.x)/dist)*move;a.z+=((dest.z-a.z)/dist)*move;available-=move;a.isWalking=true;
+      if(move>=dist-.02)ai.route.shift();
+    }
+    if(!ai.route.length){ai.phase='active';a.isWalking=false;}
+  }
+  function tick(state,gameMinutes,ctx={}){
+    if(!(gameMinutes>0))return;
+    const current=state.day*1440+state.minutes;
+    if(state.meeting?.active&&current>=state.meeting.until)concludeMeeting(state,ctx);
+    if(state.meeting?.active&&!state.meeting.discussed&&current>=state.meeting.until-11){
+      state.meeting.discussed=true;
+      dialogue(state,ctx,state.agents[0],state.agents[20],'meeting');
+    }
+    for(const a of state.agents){
+      const ai=a.ai;ai.day=state.day;advanceMovement(a,gameMinutes);
+      ai.cooldown=Math.max(0,ai.cooldown-gameMinutes);
+      if(state.meeting?.active){a.stress=clamp(a.stress-gameMinutes*.12,0,100);continue;}
+      if(a.rest>0){
+        a.rest=Math.max(0,a.rest-gameMinutes);
+        a.energy=clamp(a.energy+gameMinutes*.94,0,100);
+        a.stress=clamp(a.stress-gameMinutes*.7,0,100);
+        a.mood=clamp(a.mood+gameMinutes*.08,0,100);
+        if(ai.mode!=='resting')behavior(a,'resting',targetFor(a,'rest'),a.rest);
+        if(a.rest<=0){a.task=a.task||ctx.newTask?.(a)||null;behavior(a,'working',targetFor(a,'desk'));}
+        continue;
+      }
+      a.socialNeed=clamp(a.socialNeed+gameMinutes*.17,0,100);
+      ai.left=Math.max(0,ai.left-gameMinutes);
+      if(ai.mode==='working'){
+        a.stress=clamp(a.stress+gameMinutes*.028,0,100);
+        a.energy=clamp(a.energy-gameMinutes*.023,0,100);
+      }
+      if(['socializing','collaborating','reporting'].includes(ai.mode)&&ai.left<=0&&ai.phase==='active'){
+        const partner=state.agents.find(b=>b.id===ai.partner);
+        if(partner)dialogue(state,ctx,a,partner,ai.mode==='socializing'?'social':ai.mode==='collaborating'?'help':'report');
+        behavior(a,'working',targetFor(a,'desk'));ai.cooldown=Math.max(ai.cooldown,12);
+        continue;
+      }
+      if(ai.mode==='idle'&&ai.left<=0)choose(state,ctx,a);
+      if(ai.mode==='working'&&ai.phase==='active'&&ai.cooldown<=0)choose(state,ctx,a);
+      if(ai.mode!=='working'&&ai.mode!=='idle'&&ai.phase==='active'&&ai.left<=0)choose(state,ctx,a);
+    }
+  }
+  function onTaskCompleted(state,agent,task,ctx={}){
+    agent.history.push({day:state.day,task:task.label,projectId:task.projectId});agent.history=agent.history.slice(-MAX_HISTORY);
+    memory(agent,`Hoàn thành: ${task.label}`);if(agent.completed%5===0)memory(agent,`Đã hoàn thành ${agent.completed} công việc chuyên môn`,'long');
+    agent.stress=clamp(agent.stress-1.5,0,100);
+    if(agent.ai)agent.ai.cooldown=0;
+  }
+  function addLedger(state,kind,amount,note){
+    state.ledger.push({day:state.day,minute:state.minutes,kind,amount,note});state.ledger=state.ledger.slice(-90);
+  }
+  return Object.freeze({VERSION:3,STATUS,upgrade,initAgent,status,findPath,blocked,tick,requestMeeting,concludeMeeting,onTaskCompleted,addLedger,memory,targetFor,behavior});
+});
+
+/* MEDIA AGENT WORLD V0.5 — offline 3D media agency game (Gemini × Codex workflow).
+   WebGL rendering and all agent behavior run locally; no external services. */
+(() => {
+  'use strict';
+  const VERSION = 3;
+  const engine = globalThis.MediaAgentEngine;
+  const SAVE_KEY = 'media_agent_world_v05_offline';
+  const PREVIOUS_SAVE_KEY='media_agent_world_v03_offline';
+  const LEGACY_SAVE_KEY = 'media_tech_25_agent_offline_v2';
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => [...document.querySelectorAll(s)];
+  const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const pick = (a) => a[Math.floor(Math.random() * a.length)];
+  const escapeHTML = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const vn = (n) => Math.round(n).toLocaleString('vi-VN');
+  const money = (n) => `${vn(n)} ₫`;
+  const compactMoney = n => n >= 1e9 ? `${(n / 1e9).toFixed(2).replace('.', ',')} tỷ ₫` : n >= 1e6 ? `${(n / 1e6).toFixed(1).replace('.', ',')} tr ₫` : money(n);
+  const colorHex = (color) => '#' + color.map(x => Math.round(x * 255).toString(16).padStart(2, '0')).join('');
+  const h2rgb = hex => [1,3,5].map(i => parseInt(hex.slice(i,i+2),16)/255);
+  const DEPTS = [
+    {id:'content',name:'Sáng tạo nội dung',short:'Nội dung',icon:'✎',color:'#45e0c4',x:-10.6,z:-5.5,w:10,h:8.1,tag:'CONTENT STUDIO'},
+    {id:'pr',name:'Truyền thông & PR',short:'PR & Báo chí',icon:'◈',color:'#fab77f',x:0,z:-5.5,w:10,h:8.1,tag:'PUBLIC RELATIONS'},
+    {id:'video',name:'Video & Sản xuất',short:'Video Studio',icon:'▣',color:'#bd9bff',x:10.6,z:-5.5,w:10,h:8.1,tag:'PRODUCTION HUB'},
+    {id:'digital',name:'Marketing kỹ thuật số',short:'Digital Ads',icon:'◎',color:'#74b6ff',x:-7.8,z:5.25,w:14.5,h:8.2,tag:'DIGITAL MARKETING'},
+    {id:'data',name:'Chiến lược & Phân tích',short:'Chiến lược',icon:'⌁',color:'#ffce78',x:7.8,z:5.25,w:14.5,h:8.2,tag:'STRATEGY & INSIGHT'}
+  ];
+  const ROSTER = [
+    ['Minh Anh','Giám đốc nội dung','content',91],['Quốc Bảo','Copywriter','content',83],['Thảo Vy','Biên tập viên','content',89],['Đức Minh','Biên kịch','content',81],['Khánh Linh','Chuyên gia SEO','content',87],
+    ['Hà Phương','Trưởng phòng PR','pr',93],['Tuấn Kiệt','Chuyên viên báo chí','pr',84],['Ngọc Mai','Quản lý khủng hoảng','pr',90],['Gia Huy','Quan hệ đối tác','pr',79],['Bảo Ngọc','Tổ chức sự kiện','pr',85],
+    ['Hoàng Long','Đạo diễn sáng tạo','video',92],['Thu Trang','Quay phim','video',84],['Duy Khang','Video Editor','video',90],['Nhật Nam','Motion Designer','video',86],['Thanh Hằng','Producer','video',82],
+    ['Phúc An','Trưởng nhóm Digital','digital',94],['Yến Nhi','Social Media Manager','digital',88],['Trọng Nghĩa','Ads Specialist','digital',86],['Mai Chi','Community Manager','digital',81],['Minh Quân','Growth Hacker','digital',89],
+    ['Hải Đăng','Giám đốc chiến lược','data',95],['Tú Anh','Data Analyst','data',89],['Văn Sơn','Media Planner','data',83],['Kim Oanh','Account Manager','data',85],['Anh Tú','Insight Researcher','data',87]
+  ];
+  const JOBS = {
+    content:['Viết concept sáng tạo','Biên tập bài thương hiệu','Lên lịch bài đăng','Soạn kịch bản chiến dịch','Tối ưu bài SEO','Viết thông điệp quảng cáo','Duyệt nội dung đa kênh'],
+    pr:['Xây dựng kế hoạch PR','Soạn thông cáo báo chí','Theo dõi khủng hoảng','Làm việc cùng đối tác','Chuẩn bị sự kiện ra mắt','Đánh giá danh tiếng','Xây dựng media kit'],
+    video:['Lên storyboard video','Ghi hình quảng cáo','Dựng TVC thương hiệu','Thiết kế motion graphics','Quản lý lịch quay','Chỉnh màu hậu kỳ','Sản xuất video ngắn'],
+    digital:['Lập chiến dịch Meta Ads','Lên lịch nội dung TikTok','Tối ưu Google Ads','Quản lý cộng đồng','A/B test quảng cáo','Theo dõi chuyển đổi','Phân phối nội dung đa kênh'],
+    data:['Phân tích insight khách hàng','Lập media plan','Theo dõi KPI chiến dịch','Chuẩn bị báo cáo CEO','Phân tích xu hướng','Đánh giá hiệu suất ROI','Đề xuất chiến lược thương hiệu']
+  };
+  const PROJECT_PRESETS = [
+    {name:'Ra mắt thương hiệu NOVA',client:'NOVA Lifestyle',type:'BRAND LAUNCH',pay:255e6,color:'#42d5be',brief:'Xây dựng nhận diện, video ra mắt, PR và quảng cáo đa nền tảng.'},
+    {name:'Chiến dịch Digital 360°',client:'Aurora Coffee',type:'DIGITAL 360',pay:185e6,color:'#7dbbff',brief:'Tăng nhận diện và đơn hàng bằng nội dung, influencer và quảng cáo.'},
+    {name:'Truyền thông sản phẩm xanh',client:'GreenMove',type:'PR CAMPAIGN',pay:220e6,color:'#f9bd82',brief:'Ra mắt dòng sản phẩm xanh, tạo thiện cảm và theo dõi thảo luận.'},
+    {name:'Chiến dịch Tết thương hiệu',client:'VietMarket',type:'SEASONAL',pay:275e6,color:'#d3a1fd',brief:'Sản xuất TVC, nội dung mạng xã hội, PR và digital ads.'},
+    {name:'Khôi phục uy tín thương hiệu',client:'Solace Group',type:'CRISIS PR',pay:148e6,color:'#fa9d9e',brief:'Giám sát thông tin, lên phương án xử lý và phản hồi báo chí.'},
+    {name:'Lễ ra mắt công nghệ mới',client:'Orbit Labs',type:'TECH EVENT',pay:320e6,color:'#80e6e1',brief:'Tổ chức sự kiện, video giới thiệu và chiến dịch truyền thông.'}
+  ];
+  const deskSlots = [[-2.85,-1.35],[0,-1.35],[2.85,-1.35],[-1.4,1.78],[1.4,1.78]];
+  let selectedAgentId = 0;
+  let selectedProjectId = 1;
+  let activeDept = 'all';
+  let activeSpeed = 1;
+  let scene = null;
+  let state;
+  let lastSaveAt = 0;
+  let lastUiAt = 0;
+  let nextChatter = 5;
+  let lastFrame = performance.now();
+  let chatScrollAnchor = null;
+
+  function makeAgent(row, index) {
+    const room = DEPTS.find(d => d.id === row[2]);
+    const slot = deskSlots[index % 5];
+    return {id:index,name:row[0],role:row[1],dept:row[2],skill:row[3],energy:Math.round(rand(70,96)),mood:Math.round(rand(70,94)),loyalty:75,completed:0,rest:0,task:null,
+      x:room.x+slot[0],z:room.z+slot[1]-.58,homeX:room.x+slot[0],homeZ:room.z+slot[1]-.58,
+      offset:index*0.83,level:1,chats:[],memo:[],speech:null,speechUntil:0};
+  }
+  function makeProject(p, id, progress=0) {
+    return {id,name:p.name,client:p.client,type:p.type,color:p.color,pay:p.pay,brief:p.brief,progress,completed:false,deadline:Math.ceil(2+id*1.5),doneBy:[],quality:80};
+  }
+  function initialState() {
+    const agents = ROSTER.map(makeAgent);
+    const projects = PROJECT_PRESETS.slice(0,3).map((p,i) => makeProject(p,i+1,[13,26,8][i]));
+    const s = {version:VERSION,cash:10e9,reputation:72,satisfaction:78,day:1,minutes:9*60,earned:0,spent:0,finishedProjects:0,finishedTasks:0,auto:true,nextProjectId:4,conversationMode:'adaptive',showBubbles:true,
+      nextPostId:1,posts:[],agents,projects,activities:[{text:'Văn phòng MEDIA WORLD khai trương với 25 Agent.',day:1,minute:540,type:'office'},{text:'3 chiến dịch truyền thông đã được kích hoạt.',day:1,minute:540,type:'project'}]};
+    for (const a of s.agents) a.task = newTask(s,a,projects[a.id % projects.length]);
+    return s;
+  }
+  function newTask(s,agent,preferredProject) {
+    const active = s.projects.filter(p => !p.completed);
+    const project = (preferredProject && !preferredProject.completed) ? preferredProject : (active.length ? pick(active) : null);
+    if(!active.length)return null; // No new task without an active contract.
+    const pool = JOBS[agent.dept];
+    const label = pick(pool);
+    return {label,projectId:project?.id ?? null,progress:0,duration:rand(22,47),reward:Math.round(rand(90e3,240e3)*(agent.skill/85)),assignedAt:s.day};
+  }
+  function load() {
+    try {
+      const raw=localStorage.getItem(SAVE_KEY)||localStorage.getItem(PREVIOUS_SAVE_KEY)||localStorage.getItem(LEGACY_SAVE_KEY);
+      if (!raw) return null;
+      const s=JSON.parse(raw);
+      if(![2,3].includes(s.version)||!Array.isArray(s.agents)||s.agents.length!==25||!Array.isArray(s.projects)||!Number.isFinite(s.cash))return null;
+      if(s.agents.some(a => !Number.isFinite(a.energy)||!Number.isFinite(a.x)||!Number.isFinite(a.z)))return null;
+      if(s.posts && !Array.isArray(s.posts))return null;
+      return s;
+    } catch(err){console.warn('Không đọc được bản lưu:',err);return null;}
+  }
+  function save(silent=true){
+    try{localStorage.setItem(SAVE_KEY,JSON.stringify(state)); if(!silent) toast('Đã lưu tiến trình trên thiết bị này.');return true;}
+    catch(err){if(!silent) toast('Không thể lưu: trình duyệt chặn localStorage.',true);return false;}
+  }
+  function track(text,type='info'){
+    state.activities.unshift({text,day:state.day,minute:state.minutes,type});
+    state.activities=state.activities.slice(0,24);
+    $('#ticker-message').textContent=text;
+  }
+  function toast(msg,error=false){
+    const el=document.createElement('div');el.className='toast'+(error?' error':'');el.textContent=msg;$('#toast-layer').appendChild(el);setTimeout(()=>el.remove(),3600);
+  }
+  function timeText(day=state.day,minute=state.minutes){const h=Math.floor(minute/60);const m=Math.floor(minute%60);return `Ngày ${String(day).padStart(2,'0')} · ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;}
+  function activeProject(id){return state.projects.find(p => p.id===id);}
+  function dept(id){return DEPTS.find(x=>x.id===id);}
+  function avg(property){return state.agents.reduce((s,a)=>s+a[property],0)/state.agents.length;}
+  function statusText(a){return engine.status(a);}
+  function speech(agent,message,seconds=5){agent.speech=message;agent.speechUntil=performance.now()+seconds*1000;}
+  function makeChat(agent,message,from='agent'){
+    agent.chats.push({from,text:message,day:state.day,minute:state.minutes});agent.chats=agent.chats.slice(-20);
+    engine.memory(agent, (from==='user'?'CEO: ':'Hội thoại: ')+message);
+    if(from==='agent') speech(agent,message.slice(0,60),4.5);
+  }
+  function completeTask(a){
+    const t=a.task;if(!t)return;
+    a.completed++;state.finishedTasks++;
+    a.energy=clamp(a.energy-1.5,0,100);
+    a.mood=clamp(a.mood+0.35,0,100);
+    // V0.5: individual task effort no longer mints cash; only delivered contracts generate revenue.
+    engine.onTaskCompleted(state,a,t);
+    const p=activeProject(t.projectId);
+    if(p&&!p.completed){
+      p.progress=Math.min(100,p.progress+rand(2.4,4.6)*(a.skill/85));
+      if(p.progress>=100){
+        p.completed=true;p.progress=100;p.doneBy.push(a.name);state.cash+=p.pay;state.earned+=p.pay;state.finishedProjects++;engine.addLedger(state,'contract',p.pay,'Thanh toán hợp đồng '+p.name);
+        state.reputation=clamp(state.reputation+rand(1.3,3.3),0,100);state.satisfaction=clamp(state.satisfaction+rand(1.2,3),0,100);
+        track(`✓ Chiến dịch “${p.name}” hoàn tất. Thu về ${compactMoney(p.pay)}!`,'success');
+        toast(`🎉 Hoàn thành “${p.name}” — +${compactMoney(p.pay)}`);
+        if(selectedProjectId===p.id) selectedProjectId=state.projects.find(x=>!x.completed)?.id ?? p.id;
+      } else if(Math.round(p.progress)%20<4&&Math.random()<.13){track(`${a.name} vừa hoàn thành “${t.label}” cho ${p.client}.`,'task');}
+    }
+    if(t.revisionPostId){completeRevision(t.revisionPostId,a);}
+    else if(p && ['content','video','digital'].includes(a.dept) && a.completed%3===0){createDraft(a,p,t);}
+    if(a.completed%4===0){a.skill=clamp(a.skill+.2,0,99);a.level=1+Math.floor(a.completed/4);}
+    if(a.energy<23){a.rest=rand(15,27);a.task=null;engine.behavior(a,'resting',engine.targetFor(a,'rest'),a.rest);speech(a,'Mình nghỉ ngắn để lấy lại năng lượng nhé!',4);}
+    else{a.task=newTask(state,a);if(Math.random()<.13)speech(a,pick(['Đã bàn giao phần việc đúng hạn!','Mình chuyển sang đầu việc tiếp theo.','KPI đang tiến triển tích cực!']),4);}
+  }
+  // ------------------ SIMULATED SOCIAL PUBLISHING ------------------
+  // Never sends data to Facebook, TikTok, Gemini, Codex or any external service.
+  function createDraft(agent,project,task){
+    const pending=state.posts.filter(p=>p.status==='pending').length;
+    if(pending>=12)return; // Prevent runaway approval queues.
+    const platform=agent.dept==='video'?'TikTok':agent.dept==='content'?'Facebook':pick(['Facebook','TikTok']);
+    const ideas={Facebook:['Bài giới thiệu giá trị thương hiệu','Câu chuyện hậu trường studio','Thông điệp truyền cảm hứng','Cập nhật chiến dịch nổi bật'],TikTok:['Video hậu trường 30 giây','Series giới thiệu sản phẩm','Video ý tưởng mới','Clip kể chuyện thương hiệu']};
+    const title=pick(ideas[platform]);
+    const caption=`${title} cho ${project.client}. #${platform==='TikTok'?'MediaVideo':'MediaStudio'} #${project.client.replace(/[^a-zA-Z0-9]/g,'')}`;
+    const post={id:state.nextPostId++,projectId:project.id,authorId:agent.id,platform,title,caption,status:'pending',reachCarry:0,quality:Math.round(clamp((agent.skill+agent.mood)/2,30,99)),reach:0,likes:0,comments:0,createdDay:state.day,createdMinute:state.minutes,publishedDay:null};
+    state.posts.unshift(post);state.posts=state.posts.slice(0,100);
+    track(`Bản nháp ${platform} của ${agent.name} đã gửi CEO duyệt.`,'task');
+  }
+  function completeRevision(id,agent){
+    const post=state.posts.find(p=>p.id===id && p.status==='revision');
+    if(!post)return;
+    post.status='pending';post.quality=Math.round(clamp(post.quality+3,0,99));
+    post.caption=post.caption.replace(/ \(đã chỉnh sửa\)$/,'')+' (đã chỉnh sửa)';
+    track(`${agent.name} hoàn tất chỉnh sửa nội dung ${post.platform} ảo; chờ CEO duyệt.`,'task');
+  }
+  function advanceVirtualPosts(gameMinutes){
+    for(const post of state.posts){
+      if(post.status!=='published')continue;
+      const age=Math.max(0,state.day-(post.publishedDay??state.day));
+      post.reachCarry=(post.reachCarry||0)+Math.max(0,gameMinutes*(2.1+post.quality/13)/(1+age*.55));
+      const extra=Math.floor(post.reachCarry);
+      post.reachCarry-=extra;
+      post.reach+=extra;
+      post.likes=Math.round(post.reach*(.045+post.quality/2700));
+      post.comments=Math.round(post.likes*.12);
+    }
+  }
+  function publishVirtualPost(id){
+    const post=state.posts.find(p=>p.id===id);
+    if(!post||post.status!=='pending')return;
+    post.status='published';post.publishedDay=state.day;
+    const author=state.agents.find(a=>a.id===post.authorId);
+    track(`CEO duyệt ${post.platform} ảo: “${post.title}” — ${author?.name??'Agent'} phụ trách.`,'success');
+    save();renderVirtualChannels();openChannelsModal();
+    toast('Đã đăng trên kênh mô phỏng. Không có bài đăng thật.');
+  }
+  function reviseVirtualPost(id){
+    const post=state.posts.find(p=>p.id===id);
+    if(!post||post.status!=='pending')return;
+    post.status='revision';
+    const author=state.agents.find(a=>a.id===post.authorId);
+    if(author){author.memo.push(`CEO yêu cầu chỉnh sửa bản nháp: ${post.title}`);author.memo=author.memo.slice(-12);
+      if(!author.rest){author.task=newTask(state,author,activeProject(post.projectId));author.task.label=`Chỉnh sửa: ${post.title}`;author.task.revisionPostId=id;}}
+    track(`CEO yêu cầu ${author?.name??'Agent'} chỉnh sửa nội dung ${post.platform} ảo.`,'task');
+    save();renderVirtualChannels();openChannelsModal();
+  }
+  function renderVirtualChannels(){
+    const posts=state.posts;
+    const reach=(platform)=>posts.filter(p=>p.platform===platform&&p.status==='published').reduce((sum,p)=>sum+p.reach,0);
+    $('#fb-reach').textContent=vn(reach('Facebook'))+' lượt xem';
+    $('#tt-reach').textContent=vn(reach('TikTok'))+' lượt xem';
+    $('#pending-count').textContent=posts.filter(p=>p.status==='pending').length;
+    $('#published-count').textContent=posts.filter(p=>p.status==='published').length;
+  }
+  function openChannelsModal(){
+    const pending=state.posts.filter(p=>p.status==='pending'),published=state.posts.filter(p=>p.status==='published'),revision=state.posts.filter(p=>p.status==='revision');
+    const card=(p,review)=>{const author=state.agents.find(a=>a.id===p.authorId);
+      return `<article class="post-row"><div class="post-top"><span>${p.platform==='Facebook'?'◉':'♪'} ${p.platform} ẢO</span><b>${review?'CHỜ DUYỆT':p.status==='revision'?'CẦN SỬA':'ĐÃ PHÁT'}</b></div><h4>${escapeHTML(p.title)}</h4><p>${escapeHTML(p.caption)}</p><div class="post-meta">${escapeHTML(author?.name??'Agent')} · Chất lượng ${p.quality}/100 · ${review?'Dự thảo':`${vn(p.reach)} lượt xem · ${vn(p.likes)} thích · ${vn(p.comments)} bình luận`}</div>${review?`<div class="post-actions"><button data-publish="${p.id}">✓ Duyệt & đăng ảo</button><button class="secondary" data-revise="${p.id}">↺ Yêu cầu sửa</button></div>`:''}</article>`;
+    };
+    showModal('TRUNG TÂM NỘI DUNG ẢO','Facebook & TikTok Studio',`<p class="sim-note">Agent tạo bản nháp khi hoàn thành công việc. CEO quyết định duyệt hay yêu cầu sửa. Lượt xem và tương tác hoàn toàn do bộ mô phỏng tạo ra, không sử dụng tài khoản hay API ngoài.</p>
+      <label class="modal-label">CHỜ DUYỆT (${pending.length})</label>${pending.length?pending.slice(0,12).map(p=>card(p,true)).join(''):'<div class="social-empty">Chưa có bản nháp. Tiếp tục chạy mô phỏng hoặc tăng tốc độ để nhân viên hoàn thành đầu việc.</div>'}
+      <label class="modal-label" style="margin-top:18px">ĐÃ ĐĂNG ẢO (${published.length})</label>${published.length?published.slice(0,8).map(p=>card(p,false)).join(''):'<div class="social-empty">Chưa có bài nào được duyệt.</div>'}
+      ${revision.length?`<label class="modal-label" style="margin-top:18px">ĐANG CHỈNH SỬA (${revision.length})</label>${revision.slice(0,4).map(p=>card(p,false)).join('')}`:''}`,
+      ()=>{$$('#modal-content [data-publish]').forEach(b=>b.addEventListener('click',()=>publishVirtualPost(Number(b.dataset.publish))));
+        $$('#modal-content [data-revise]').forEach(b=>b.addEventListener('click',()=>reviseVirtualPost(Number(b.dataset.revise))));});
+  }
+  function endDay(){
+    state.day++;
+    state.minutes=9*60;
+    const payroll=25*150000;
+    const overhead=500000;state.cash-=payroll+overhead;state.spent+=payroll+overhead;
+    engine.addLedger(state,'payroll',-(payroll+overhead),'Lương và chi phí văn phòng');
+    state.satisfaction=clamp(state.satisfaction+(avg('mood')-70)*.013,0,100);
+    for(const a of state.agents){a.energy=clamp(a.energy+12,0,100);a.mood=clamp(a.mood+1,0,100);a.stress=clamp(a.stress-9,0,100);a.memo=a.memo.slice(-12);}
+    for(const p of state.projects.filter(p=>!p.completed))if(state.day>p.deadline){state.satisfaction=clamp(state.satisfaction-.8,0,100);state.reputation=clamp(state.reputation-.25,0,100);}
+    track(`Bắt đầu ngày ${state.day}. Đã chi lương ${compactMoney(payroll)} và vận hành ${compactMoney(overhead)}.`,'office');
+    toast(`☀️ Ngày ${state.day} bắt đầu. Tổng quỹ lương: ${compactMoney(payroll)}.`);
+  }
+  const engineContext={
+    log:(message,type)=>track(message,type),
+    speak:(agent,message)=>speech(agent,message,4.7),
+    newTask:(agent)=>newTask(state,agent)
+  };
+  function step(gameMinutes){
+    if(!Number.isFinite(gameMinutes)||gameMinutes<=0)return;
+    let remaining=Math.min(gameMinutes,720);
+    while(remaining>0){
+      // A bounded integrator avoids skipping salary days, appointments and deadlines.
+      const part=Math.min(remaining,2,Math.max(.00001,1080-state.minutes));
+      remaining-=part;state.minutes+=part;
+      if(state.minutes>=1080-.00001)endDay();
+      engine.tick(state,part,engineContext);
+      advanceVirtualPosts(part);
+      for(const a of state.agents){
+        if(a.rest>0||state.meeting?.active||a.ai.mode!=='working'||a.ai.phase==='travel')continue;
+        if(!a.task)a.task=newTask(state,a);
+        if(!a.task)continue;
+        a.task.progress+=part/a.task.duration*(.72+a.skill/120)*(a.energy<35?.63:1)*100;
+        if(a.task.progress>=100)completeTask(a);
+      }
+    }
+    if(state.projects.every(p=>p.completed)&&!state.proposalNotified){
+      state.proposalNotified=true;track('Đội ngũ đề xuất CEO ký chiến dịch mới. Hiện không có hợp đồng đang chạy.','project');
+    } else if(state.projects.some(p=>!p.completed))state.proposalNotified=false;
+  }
+  function initials(name){return name.split(' ').slice(-2).map(s=>s[0]).join('').toUpperCase();}
+  function agentAvatar(a,cls=''){
+    const c=dept(a.dept).color;
+    return `<span class="agent-avatar ${cls}" style="background:linear-gradient(135deg,${c}45,${c}19);border-color:${c}66">${initials(a.name)}<i class="${a.rest>0?'resting':''}"></i></span>`;
+  }
+  function renderProjects(){
+    const active=state.projects.filter(p=>!p.completed);
+    $('#project-count').textContent=String(active.length).padStart(2,'0');
+    const show=active.slice(0,5);
+    $('#projects').innerHTML=show.map(p=>`<button class="project-card ${p.id===selectedProjectId?'active':''}" data-project="${p.id}">
+      <div class="project-top"><span class="project-type">${escapeHTML(p.type)}</span><span class="project-state">● ĐANG TRIỂN KHAI</span></div>
+      <h3>${escapeHTML(p.name)}</h3><p>${escapeHTML(p.client)} · Deadline ngày ${p.deadline}</p>
+      <div class="project-progress-label"><span>TIẾN ĐỘ DỰ ÁN</span><b>${Math.round(p.progress)}%</b></div><div class="track"><div style="width:${p.progress}%"></div></div>
+    </button>`).join('')+(active.length===0?'<p style="font-size:11px;color:#91aabd;line-height:1.6">Tất cả chiến dịch đã hoàn tất. Hãy khởi tạo chiến dịch mới!</p>':'');
+    $('#projects').querySelectorAll('[data-project]').forEach(btn=>btn.addEventListener('click',()=>{selectedProjectId=Number(btn.dataset.project);renderProjects();projectInfo(selectedProjectId);}));
+  }
+  function renderActivity(){
+    $('#activity-feed').innerHTML=state.activities.slice(0,5).map(act=>`<div class="activity-item"><span class="activity-icon">${act.type==='success'?'✓':act.type==='chat'?'◉':act.type==='task'?'↗':'⌁'}</span><div><span>${escapeHTML(act.text)}</span><time>${timeText(act.day,act.minute)}</time></div></div>`).join('');
+  }
+  function renderDeptTabs(){
+    $('#dept-bar').innerHTML=DEPTS.map(d=>{
+      const working=state.agents.filter(a=>a.dept===d.id&&a.rest===0).length;
+      return `<button class="dept-tab ${activeDept===d.id?'active':''}" data-dept="${d.id}"><span class="dept-emoji" style="color:${d.color}">${d.icon}</span><span><strong>${escapeHTML(d.short)}</strong><small>${working}/5 online</small></span></button>`;
+    }).join('');
+    $$('#dept-bar [data-dept]').forEach(btn=>btn.addEventListener('click',()=>{
+      activeDept=activeDept===btn.dataset.dept?'all':btn.dataset.dept;$('#dept-filter').value=activeDept;
+      if(scene){const d=dept(btn.dataset.dept);scene.camera.targetX=d.x;scene.camera.targetZ=d.z;scene.camera.dist=activeDept==='all'?39:24;}
+      renderDeptTabs();renderRoster();
+    }));
+  }
+  function renderRoster(){
+    const q=$('#agent-search').value.toLocaleLowerCase('vi').trim();const filtered=state.agents.filter(a=>(activeDept==='all'||a.dept===activeDept)&&`${a.name} ${a.role} ${dept(a.dept).name}`.toLocaleLowerCase('vi').includes(q));
+    $('#roster-count').textContent=`${filtered.length} / 25`;
+    const container=$('#roster');const scroll=container.scrollTop;
+    container.innerHTML=filtered.map(a=>`<button class="agent-row ${a.id===selectedAgentId?'selected':''}" data-agent="${a.id}">${agentAvatar(a)}<span class="agent-name"><strong>${escapeHTML(a.name)}</strong><small>${escapeHTML(a.role)}</small></span><span class="agent-arrow">›</span></button>`).join('')||'<div class="empty-roster">Không tìm thấy nhân sự phù hợp.</div>';
+    container.scrollTop=scroll;
+    container.querySelectorAll('[data-agent]').forEach(btn=>btn.addEventListener('click',()=>selectAgent(Number(btn.dataset.agent))));
+  }
+  function agentDetailHtml(a){
+    const t=a.task;const p=activeProject(t?.projectId);
+    const defaultWelcome=`Chào CEO! Mình là ${a.name}, phụ trách ${a.role.toLowerCase()}. Mình sẵn sàng nhận nhiệm vụ.`;
+    return `<div class="detail-top">${agentAvatar(a)}<div><h3>${escapeHTML(a.name)}</h3><p>${escapeHTML(a.role)}</p></div><span id="detail-status" class="detail-status ${a.rest>0?'resting':''}">${statusText(a)}</span></div>
+      <div class="detail-grid"><div class="detail-mini"><strong id="detail-skill">${Math.round(a.skill)}</strong><small>Kỹ năng</small></div><div class="detail-mini"><strong id="detail-energy">${Math.round(a.energy)}%</strong><small>Năng lượng</small></div><div class="detail-mini"><strong id="detail-mood">${Math.round(a.mood)}%</strong><small>Tinh thần</small></div></div>
+      <div class="detail-heading">NHIỆM VỤ HIỆN TẠI</div><div class="current-task"><div class="task-name"><strong id="detail-task">${escapeHTML(t?.label??'Nghỉ ngắn')}</strong><b id="detail-task-percent">${Math.round(t?.progress??0)}%</b></div><div class="track"><div id="detail-task-bar" style="width:${clamp(t?.progress??0,0,100)}%"></div></div><p id="detail-project">${p&&!p.completed?'Chiến dịch: '+escapeHTML(p.name):'Nhiệm vụ vận hành nội bộ'}</p></div>
+      <div class="agent-ai-panel"><div class="agent-ai-head"><span><i class="agent-state-dot"></i> AGENT ENGINE V0.5</span><b id="detail-ai-mode">${escapeHTML(statusText(a))}</b></div><div class="agent-ai-metrics"><div>Áp lực<strong id="detail-stress">${Math.round(a.stress)}%</strong></div><div>Nhu cầu giao tiếp<strong id="detail-social">${Math.round(a.socialNeed)}%</strong></div></div><details><summary>Trí nhớ & nhiệm vụ gần đây</summary><ul id="agent-memories">${(a.ai.longTerm.concat(a.ai.shortTerm).slice(-5).reverse().map(m=>`<li>${escapeHTML(m.text)}</li>`).join('')||'<li>Chưa có ghi nhớ.</li>')}</ul></details><div class="agent-ai-head" style="margin-top:11px"><span>QUAN HỆ ĐỒNG NGHIỆP</span></div><p id="agent-relationships" style="font-size:10px;color:#aec1d6;margin-top:6px;line-height:1.6">${Object.entries(a.relationships).sort((x,y)=>y[1]-x[1]).slice(0,3).map(([id,val])=>`${escapeHTML(state.agents[Number(id)]?.name??'Đồng nghiệp')}: ${Math.round(val)}/100`).join(' · ')||'Chưa có tương tác.'}</p></div>
+      <div class="detail-actions"><button id="assign-btn" class="primary">✧ Giao nhiệm vụ</button><button id="bonus-btn">✦ Thưởng 100.000₫</button><button id="rest-btn">◷ Cho nghỉ 15 phút</button><button id="focus-btn">⌖ Xem trong 3D</button></div>
+      <div class="chat-card"><div class="chat-head">◉ TRÒ CHUYỆN VỚI AGENT <span>LOCAL AI SIM</span></div><div class="chat-messages" id="chat-messages">${(a.chats.length?a.chats:[{from:'agent',text:defaultWelcome}]).map(c=>`<div class="chat-msg ${c.from==='user'?'user':''}">${escapeHTML(c.text)}</div>`).join('')}</div><form class="chat-compose" id="chat-form"><input id="chat-input" placeholder="Nhắn với ${escapeHTML(a.name)}..." maxlength="240" required autocomplete="off" /><button type="submit" title="Gửi">➤</button></form></div>`;
+  }
+  function renderDetail(){
+    const a=state.agents[selectedAgentId];if(!a)return;
+    $('#agent-detail').innerHTML=agentDetailHtml(a);
+    $('#assign-btn').addEventListener('click',()=>openTaskModal(a));
+    $('#bonus-btn').addEventListener('click',()=>bonusAgent(a));
+    $('#rest-btn').addEventListener('click',()=>restAgent(a));
+    $('#focus-btn').addEventListener('click',()=>{if(scene){scene.camera.targetX=a.x;scene.camera.targetZ=a.z;scene.camera.dist=19;}});
+    $('#chat-form').addEventListener('submit',e=>{e.preventDefault();const inp=$('#chat-input');const msg=inp.value.trim();if(!msg)return;inp.value='';replyAgent(a,msg);});
+    const cm=$('#chat-messages');cm.scrollTop=cm.scrollHeight;
+  }
+  function updateDetail(){
+    const a=state.agents[selectedAgentId];if(!a||!$('#detail-skill'))return;
+    const values={'#detail-skill':Math.round(a.skill),'#detail-energy':`${Math.round(a.energy)}%`,'#detail-mood':`${Math.round(a.mood)}%`,'#detail-task':a.task?.label??'Nghỉ ngắn','#detail-task-percent':`${Math.round(a.task?.progress??0)}%`};
+    Object.entries(values).forEach(([id,text])=>{const el=$(id);if(el)el.textContent=text;});
+    $('#detail-task-bar').style.width=clamp(a.task?.progress??0,0,100)+'%';
+    const p=activeProject(a.task?.projectId);$('#detail-project').textContent=p&&!p.completed?`Chiến dịch: ${p.name}`:'Nhiệm vụ vận hành nội bộ';
+    $('#detail-status').textContent=statusText(a);$('#detail-status').className='detail-status'+(a.rest>0?' resting':'');
+    $('#detail-ai-mode').textContent=statusText(a);$('#detail-stress').textContent=Math.round(a.stress)+'%';$('#detail-social').textContent=Math.round(a.socialNeed)+'%';
+    $('#agent-memories').innerHTML=a.ai.longTerm.concat(a.ai.shortTerm).slice(-5).reverse().map(m=>'<li>'+escapeHTML(m.text)+'</li>').join('')||'<li>Chưa có ghi nhớ.</li>';
+    $('#agent-relationships').textContent=Object.entries(a.relationships).sort((x,y)=>y[1]-x[1]).slice(0,3).map(([id,val])=>`${state.agents[Number(id)]?.name??'Đồng nghiệp'}: ${Math.round(val)}/100`).join(' · ')||'Chưa có tương tác.';
+  }
+  function selectAgent(id){if(!state.agents[id])return;selectedAgentId=id;renderRoster();renderDetail();}
+  function bonusAgent(a){
+    if(state.cash<100000){toast('Ngân sách không đủ để thưởng.',true);return;}
+    state.cash-=100000;state.spent+=100000;engine.addLedger(state,'bonus',-100000,'CEO thưởng '+a.name);a.mood=clamp(a.mood+8,0,100);a.energy=clamp(a.energy+3,0,100);a.loyalty=clamp(a.loyalty+2,0,100);
+    const line='Cảm ơn CEO! Mình sẽ cố gắng hơn nữa!';makeChat(a,line);track(`CEO thưởng 100.000₫ cho ${a.name}.`,'task');toast(`Đã thưởng ${a.name}: +8 tinh thần.`);renderDetail();updateKPIs();save();
+  }
+  function restAgent(a){if(a.rest>0){toast(`${a.name} đang nghỉ rồi.`);return;}
+    a.rest=15;a.task=null;engine.behavior(a,'resting',engine.targetFor(a,'rest'),15);const line='Cảm ơn CEO! Mình nghỉ 15 phút mô phỏng rồi trở lại.';makeChat(a,line);track(`CEO cho ${a.name} nghỉ 15 phút.`,'office');renderDetail();renderRoster();renderDeptTabs();save();}
+  function normalize(t){return t.toLocaleLowerCase('vi').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d');}
+  function replyAgent(a,text){
+    makeChat(a,text,'user');const t=normalize(text);const p=activeProject(a.task?.projectId);
+    let answer;
+    if(/dong doi|nhan vien khac|lam viec nhom|hop tac/.test(t)){const recent=a.memo.filter(x=>x.startsWith('Trao đổi với')).slice(-1)[0];answer=recent?`Mình vừa ${recent.toLowerCase()}. Team đang phối hợp ổn!`:'Mình đang phối hợp với các phòng ban theo tiến độ của chiến dịch.';}
+    else if(/chao|hello|hi|xin chao/.test(t)) answer=`Chào CEO! Mình là ${a.name}, hiện phụ trách ${a.role.toLowerCase()}.`;
+    else if(/tien do|cong viec|nhiem vu|bao cao|deadline|du an/.test(t)) answer=`Mình đang ${a.task?`làm “${a.task.label}”, hoàn thành ${Math.round(a.task.progress)}%`:'nghỉ ngắn'}.${p&&!p.completed?` Chiến dịch ${p.client} đang ở mức ${Math.round(p.progress)}%.`:''} Mình sẽ chủ động cập nhật.`;
+    else if(/met|nghi ngoi|nang luong|suc khoe/.test(t))answer=`Năng lượng của mình hiện ${Math.round(a.energy)}%. ${a.energy<50?'Mình cần nghỉ một chút để giữ chất lượng công việc.':'Mình vẫn làm tốt và sẽ báo khi cần nghỉ.'}`;
+    else if(/thuong|luong|tang luong/.test(t))answer=`Cảm ơn CEO đã quan tâm! Mức độ hài lòng của mình hiện ${Math.round(a.mood)}%. Nếu đạt KPI, mình rất mong được ghi nhận.`;
+    else if(/y tuong|sang tao|noi dung|chien dich|quang cao/.test(t))answer=`Với chuyên môn ${a.role.toLowerCase()}, mình đề xuất thử 2 phiên bản nội dung, đo tương tác, rồi tối ưu thông điệp cho từng kênh.`;
+    else if(/so lieu|kpi|roi|doanh thu|chi phi/.test(t))answer=`Hiện công ty có ${state.projects.filter(x=>!x.completed).length} dự án đang chạy và ${state.finishedTasks} nhiệm vụ đã hoàn tất. Mình sẽ tiếp tục theo dõi KPI.`;
+    else if(/cam on|tot lam|gioi/.test(t)){answer='Cảm ơn CEO! Mình sẽ giữ chất lượng và hỗ trợ đồng đội tốt hơn.';a.mood=clamp(a.mood+1.2,0,100);}
+    else if(/kho khan|van de|rui ro|khung hoang/.test(t))answer=`Rủi ro lớn nhất là quá tải và chậm phản hồi khách hàng. Mình sẽ ưu tiên cảnh báo khi năng lượng xuống thấp hoặc tiến độ có nguy cơ trễ.`;
+    else answer=pick([`Mình đã nhận thông tin, CEO. Mình sẽ xem nó trong phạm vi công việc ${a.role.toLowerCase()} và tiếp tục theo dõi tiến độ.`,
+      'Mình hiểu ý CEO. Có thể chia việc thành từng phần nhỏ, kiểm tra KPI rồi điều chỉnh dần.',
+      `Cảm ơn CEO đã trao đổi. Hiện mình đang có ${Math.round(a.energy)}% năng lượng và sẵn sàng phối hợp.`]);
+    a.memo.push(text.slice(0,100));a.memo=a.memo.slice(-12);
+    makeChat(a,answer);renderDetail();save();
+  }
+  function showModal(kicker,title,html,onReady){$('#modal-kicker').textContent=kicker;$('#modal-title').textContent=title;$('#modal-content').innerHTML=html;$('#modal-backdrop').hidden=false;onReady?.();}
+  function hideModal(){$('#modal-backdrop').hidden=true;}
+  function openTaskModal(a){
+    const active=state.projects.filter(p=>!p.completed);
+    if(!active.length){toast('Hãy tạo chiến dịch trước để giao nhiệm vụ mới.',true);return;}
+    const options=JOBS[a.dept].slice();let chosen=0;let pid=selectedProjectId;
+    if(!active.some(p=>p.id===pid))pid=active[0].id;
+    showModal('ĐIỀU HÀNH NHÂN SỰ',`Giao việc cho ${a.name}`,`<p class="modal-desc">Chọn đầu việc theo chuyên môn <b>${escapeHTML(a.role)}</b>. Người nhận sẽ tự thực hiện và cập nhật tiến độ trong mô phỏng.</p>
+      <label class="modal-label">CHIẾN DỊCH MỤC TIÊU</label><select id="task-project" class="modal-select">${active.map(p=>`<option value="${p.id}" ${p.id===pid?'selected':''}>${escapeHTML(p.name)}</option>`).join('')}</select>
+      <label class="modal-label">ĐẦU VIỆC CẦN GIAO</label><div class="choice-list" id="task-choices">${options.map((job,i)=>`<button class="choice ${i===0?'selected':''}" data-job="${i}"><span><strong>${escapeHTML(job)}</strong><small>Chuyên môn: ${escapeHTML(dept(a.dept).short)}</small></span><b>${Math.round(25+a.skill/9)} phút game</b></button>`).join('')}</div><button id="confirm-task" class="modal-cta">✓ XÁC NHẬN GIAO NHIỆM VỤ</button>`,()=>{
+      $$('#task-choices [data-job]').forEach(b=>b.addEventListener('click',()=>{chosen=Number(b.dataset.job);$$('#task-choices .choice').forEach(c=>c.classList.toggle('selected',c===b));}));
+      $('#confirm-task').addEventListener('click',()=>{const projectId=Number($('#task-project').value);a.rest=0;a.task=newTask(state,a,activeProject(projectId));engine.behavior(a,'working',engine.targetFor(a,'desk'));a.task.label=options[chosen];a.task.duration=25+a.skill/9;
+        makeChat(a,`Đã nhận nhiệm vụ “${a.task.label}”. Mình bắt đầu ngay, CEO!`);track(`${a.name} nhận nhiệm vụ “${a.task.label}”.`,'task');hideModal();selectAgent(a.id);save();toast(`Đã giao việc cho ${a.name}.`);});
+    });
+  }
+  function projectInfo(id){const p=activeProject(id);if(!p)return;
+    showModal('QUẢN LÝ CHIẾN DỊCH',p.name,`<p class="modal-desc">${escapeHTML(p.brief)}</p><div class="report-grid"><div class="report-tile"><small>KHÁCH HÀNG</small><strong style="font-size:14px">${escapeHTML(p.client)}</strong></div><div class="report-tile"><small>GIÁ TRỊ HỢP ĐỒNG</small><strong style="font-size:17px">${compactMoney(p.pay)}</strong></div><div class="report-tile"><small>TIẾN ĐỘ</small><strong>${Math.round(p.progress)}%</strong></div><div class="report-tile"><small>HẠN BÀN GIAO</small><strong>Ngày ${p.deadline}</strong></div></div><div class="track" style="height:8px;margin-bottom:19px"><div style="width:${p.progress}%"></div></div><p class="modal-desc">Trạng thái: ${p.completed?'Đã hoàn thành và ghi nhận doanh thu':'Đang được 25 AI Agent phối hợp thực hiện theo công việc'}. Chọn một nhân viên để giao đầu việc cụ thể cho chiến dịch.</p><button id="project-close" class="modal-cta">ĐÃ HIỂU</button>`,()=>{$('#project-close').addEventListener('click',hideModal);});
+  }
+  function newProjectModal(){
+    if(state.projects.filter(p=>!p.completed).length>=5){toast('Chỉ có tối đa 5 chiến dịch đang chạy để giữ hiệu suất đội ngũ.',true);return;}
+    let chosen=3;
+    showModal('CEO · PHÁT TRIỂN KINH DOANH','Khởi tạo chiến dịch',`<p class="modal-desc">Nhận một hợp đồng truyền thông mới. Đội ngũ 25 Agent sẽ tự phân bổ công việc theo đúng chuyên môn; CEO có thể điều chỉnh riêng từng người.</p><div class="choice-list" id="project-choices">${PROJECT_PRESETS.map((p,i)=>`<button class="choice ${i===chosen?'selected':''}" data-preset="${i}"><span><strong>${escapeHTML(p.name)}</strong><small>${escapeHTML(p.client)} · ${escapeHTML(p.type)}</small></span><b>+${compactMoney(p.pay)}</b></button>`).join('')}</div><button id="confirm-project" class="modal-cta">＋ KÝ HỢP ĐỒNG & BẮT ĐẦU</button>`,()=>{
+      $$('#project-choices [data-preset]').forEach(b=>b.addEventListener('click',()=>{chosen=Number(b.dataset.preset);$$('#project-choices .choice').forEach(c=>c.classList.toggle('selected',c===b));}));
+      $('#confirm-project').addEventListener('click',()=>{
+        const preset=PROJECT_PRESETS[chosen],p=makeProject(preset,state.nextProjectId++);
+        p.name=`${preset.name}${state.projects.some(x=>x.name===preset.name)?` #${p.id}`:''}`;
+        p.deadline=state.day+3;state.projects.push(p);selectedProjectId=p.id;
+        const toAssign=state.agents.filter(a=>!a.rest).sort((a,b)=>(a.task?.progress??0)-(b.task?.progress??0)).slice(0,10);
+        toAssign.forEach(a=>a.task=newTask(state,a,p));
+        track(`CEO ký hợp đồng “${p.name}” trị giá ${compactMoney(p.pay)}.`,'project');hideModal();renderProjects();renderActivity();toast('Đã nhận dự án và phân công 10 Agent khởi động!');save();
+      });
+    });
+  }
+  function meeting(){
+    if(state.meeting?.active){toast('25 Agent đang trong cuộc họp.',true);return;}
+    const cost=2000000;
+    if(state.cash<cost){toast('Cần ít nhất 2.000.000₫ để tổ chức họp.',true);return;}
+    if(!engine.requestMeeting(state,engineContext,true))return;
+    state.cash-=cost;state.spent+=cost;
+    engine.addLedger(state,'meeting',-cost,'CEO triệu tập họp 25 Agent');
+    toast('Đã triệu tập họp: Agent đang di chuyển về khu vực trung tâm.');renderDetail();save();
+  }
+  function report(){
+    const active=state.projects.filter(x=>!x.completed),completed=state.projects.filter(x=>x.completed);
+    const taskCount=state.agents.reduce((s,a)=>s+a.completed,0);
+    showModal('BẢN TIN BAN ĐIỀU HÀNH','Báo cáo CEO',`<p class="modal-desc">${timeText()} · Tổng hợp tức thời từ hoạt động trong game, không lấy dữ liệu thật bên ngoài.</p>
+      <div class="report-grid"><div class="report-tile"><small>NGÂN SÁCH HIỆN TẠI</small><strong style="font-size:17px">${compactMoney(state.cash)}</strong></div><div class="report-tile"><small>DOANH THU TÍCH LŨY</small><strong style="font-size:17px">${compactMoney(state.earned)}</strong></div><div class="report-tile"><small>DỰ ÁN HOÀN THÀNH</small><strong>${completed.length}</strong></div><div class="report-tile"><small>VIỆC ĐÃ XONG</small><strong>${taskCount}</strong></div></div>
+      <p class="modal-desc">Bộ mô phỏng V0.5 chỉ ghi doanh thu mới khi hoàn tất hợp đồng. Công việc riêng không tự tạo tiền. Số dư kế thừa V0.3 vẫn được bảo lưu, không tính lại quá khứ.</p>
+      <div class="report-note">TRẠNG THÁI ĐỘI NGŨ: ${state.agents.filter(a=>a.ai.mode==='working').length} đang làm việc · ${state.agents.filter(a=>a.ai.mode==='resting').length} nghỉ · ${state.agents.filter(a=>a.ai.mode==='meeting').length} họp · Áp lực TB ${Math.round(avg('stress'))}%.</div>
+      <label class="modal-label">TIẾN ĐỘ THEO PHÒNG BAN</label><table class="report-table"><thead><tr><th>Phòng ban</th><th>Năng lượng TB</th></tr></thead><tbody>${DEPTS.map(d=>{const arr=state.agents.filter(a=>a.dept===d.id);return `<tr><td>${escapeHTML(d.name)}</td><td>${Math.round(arr.reduce((s,a)=>s+a.energy,0)/arr.length)}% · ${arr.reduce((s,a)=>s+a.completed,0)} việc</td></tr>`;}).join('')}</tbody></table>
+      <div class="report-note">${active.length?`Có ${active.length} dự án đang triển khai; ${active.some(p=>state.day>p.deadline)?'một số chiến dịch đã quá hạn, hãy ưu tiên nguồn lực.':'tiếp tục theo dõi tiến độ và mức năng lượng đội ngũ.'}`:'Không còn dự án hoạt động. CEO nên nhận thêm hợp đồng.'} Danh tiếng hiện ${Math.round(state.reputation)}/100.</div><button id="report-close" class="modal-cta">ĐÓNG BÁO CÁO</button>`,()=>$('#report-close').addEventListener('click',hideModal));
+  }
+  function downloadSave(){
+    try{
+      const data=new Blob([JSON.stringify({game:'MEDIA AGENT WORLD V0.5',exported:new Date().toISOString(),save:state},null,2)],{type:'application/json'});
+      const url=URL.createObjectURL(data);const a=document.createElement('a');a.href=url;a.download=`MEDIA_WORLD_BACKUP_day_${state.day}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
+      toast('Đã xuất bản lưu JSON về máy.');
+    }catch(e){toast('Không thể tải bản lưu ở trình duyệt này.',true);}
+  }
+  async function importBackup(file){
+    if(!file)return;
+    try{
+      if(file.size>5*1024*1024)throw Error('Tệp lớn hơn 5 MB.');
+      const data=JSON.parse(await file.text());
+      const incoming=data?.save??data;
+      if(![2,3].includes(incoming?.version)||!Array.isArray(incoming.agents)||incoming.agents.length!==25||!Array.isArray(incoming.projects)||!Number.isFinite(incoming.cash)){
+        throw Error('Bản lưu không đúng định dạng game 25 Agent.');
+      }
+      if(incoming.agents.some(a=>!Number.isFinite(a.energy)||!Number.isFinite(a.x))){throw Error('Dữ liệu nhân viên không hợp lệ.');}
+      if(incoming.posts && !Array.isArray(incoming.posts))throw Error('Dữ liệu kênh ảo không hợp lệ.');
+      if(!window.confirm('Nhập bản lưu này vào MEDIA Agent World V0.5? Dữ liệu V0.5 đang chơi sẽ bị thay thế, nhưng bản V0.3 cũ vẫn được giữ riêng.'))return;
+      state=engine.upgrade(incoming);state.posts??=[];state.nextPostId??=Math.max(1,...state.posts.map(p=>p.id+1));
+      state.conversationMode??='adaptive';state.showBubbles??=true;
+    $('#autonomy-btn').textContent=`🤖 Agent tự chủ: ${state.auto?'BẬT':'TẮT'}`;$('#autonomy-btn').classList.toggle('off',!state.auto);
+      selectedAgentId=0;selectedProjectId=state.projects[0]?.id??1;activeDept='all';
+      $('#agent-search').value='';$('#dept-filter').value='all';
+      renderAll();save();toast('Đã nhập bản lưu và khôi phục tiến trình.');
+    }catch(e){toast('Không nhập được bản lưu: '+e.message,true);}
+    finally{$('#import-file').value='';}
+  }
+  function updateKPIs(){
+    $('#money').textContent=compactMoney(state.cash);$('#reputation').textContent=Math.round(state.reputation);
+    const active=state.projects.filter(p=>!p.completed);$('#avg-progress').textContent=`${Math.round(active.length?active.reduce((s,p)=>s+p.progress,0)/active.length:100)}%`;
+    $('#working-count').textContent=state.agents.filter(a=>a.rest<=0&&a.ai.mode!=='idle').length;
+    $('#game-time').textContent=timeText();
+    const mood=Math.round(avg('mood')),energy=Math.round(avg('energy'));$('#team-mood').textContent=`${mood}%`;$('#team-energy').textContent=`${energy}%`;$('#satisfaction').textContent=`${Math.round(state.satisfaction)}%`;
+    $('#team-mood-bar').style.width=mood+'%';$('#team-energy-bar').style.width=energy+'%';$('#satisfaction-bar').style.width=state.satisfaction+'%';
+  }
+
+  // -------------------------------------------------------------------
+  // Dependency-free WebGL renderer: real 3D meshes, perspective and depth.
+  // -------------------------------------------------------------------
+  const vs = `attribute vec3 aPos; attribute vec3 aNorm; uniform mat4 uModel; uniform mat4 uVP; varying vec3 vNormal; varying vec3 vWorld; void main(){vec4 p=uModel*vec4(aPos,1.);vWorld=p.xyz;vNormal=mat3(uModel)*aNorm;gl_Position=uVP*p;}`;
+  const fs = `precision mediump float; varying vec3 vNormal;varying vec3 vWorld; uniform vec3 uColor;uniform vec3 uCamera;uniform float uGlow; void main(){vec3 n=normalize(vNormal);float v=max(dot(n,normalize(vec3(-0.45,0.89,0.48))),0.);float light=.44+.57*v;vec3 c=uColor*(light+uGlow);float fog=smoothstep(29.,80.,distance(vWorld,uCamera));c=mix(c,vec3(.045,.092,.145),fog*.64);gl_FragColor=vec4(c,1.);}`;
+  function shader(gl,type,src){const sh=gl.createShader(type);gl.shaderSource(sh,src);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(sh));return sh;}
+  function mesh(gl,positions,normals){const m={count:positions.length/3};m.pos=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,m.pos);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(positions),gl.STATIC_DRAW);m.norm=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,m.norm);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(normals),gl.STATIC_DRAW);return m;}
+  function cubemesh(gl){const v=[],n=[];const faces=[[[0,0,1],[-.5,-.5,.5],[.5,-.5,.5],[.5,.5,.5],[-.5,.5,.5]],[[0,0,-1],[.5,-.5,-.5],[-.5,-.5,-.5],[-.5,.5,-.5],[.5,.5,-.5]],[[1,0,0],[.5,-.5,.5],[.5,-.5,-.5],[.5,.5,-.5],[.5,.5,.5]],[[-1,0,0],[-.5,-.5,-.5],[-.5,-.5,.5],[-.5,.5,.5],[-.5,.5,-.5]],[[0,1,0],[-.5,.5,.5],[.5,.5,.5],[.5,.5,-.5],[-.5,.5,-.5]],[[0,-1,0],[-.5,-.5,-.5],[.5,-.5,-.5],[.5,-.5,.5],[-.5,-.5,.5]]];for(const [norm,a,b,c,d] of faces)for(const p of [a,b,c,a,c,d]){v.push(...p);n.push(...norm);}return mesh(gl,v,n);}
+  function cylindermesh(gl,sides=14){const v=[],n=[];for(let i=0;i<sides;i++){let u=i/sides*2*Math.PI,t=(i+1)/sides*2*Math.PI,a=[Math.cos(u)*.5,Math.sin(u)*.5],b=[Math.cos(t)*.5,Math.sin(t)*.5];for(const [p,nn] of [ [[0,.5,0],[0,1,0]], [[a[0],.5,a[1]],[0,1,0]], [[b[0],.5,b[1]],[0,1,0]], [[0,-.5,0],[0,-1,0]], [[b[0],-.5,b[1]],[0,-1,0]], [[a[0],-.5,a[1]],[0,-1,0]] ]){v.push(...p);n.push(...nn);}
+      const side=[[[a[0],.5,a[1]],[a[0],0,a[1]]],[[a[0],-.5,a[1]],[a[0],0,a[1]]],[[b[0],-.5,b[1]],[b[0],0,b[1]]],[[a[0],.5,a[1]],[a[0],0,a[1]]],[[b[0],-.5,b[1]],[b[0],0,b[1]]],[[b[0],.5,b[1]],[b[0],0,b[1]]]];
+      for(const [p,nn] of side){v.push(...p);n.push(...nn);}}
+    return mesh(gl,v,n);}
+  function spheremesh(gl,sides=12,rings=9){let v=[],n=[];const p=(r,c)=>{let t=r/rings*Math.PI,u=c/sides*2*Math.PI;return [Math.sin(t)*Math.cos(u)*.5,Math.cos(t)*.5,Math.sin(t)*Math.sin(u)*.5]};for(let r=0;r<rings;r++)for(let c=0;c<sides;c++){const a=p(r,c),b=p(r+1,c),d=p(r,c+1),e=p(r+1,c+1);for(const pt of [a,b,e,a,e,d]){v.push(...pt);let nn=pt.map(x=>x*2);n.push(...nn);}}return mesh(gl,v,n);}
+  function identity(){return new Float32Array([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]);}
+  function mult(a,b){let o=new Float32Array(16);for(let j=0;j<4;j++)for(let i=0;i<4;i++)o[j*4+i]=a[i]*b[j*4]+a[4+i]*b[j*4+1]+a[8+i]*b[j*4+2]+a[12+i]*b[j*4+3];return o;}
+  function perspective(fov,aspect,near,far){let f=1/Math.tan(fov/2),o=new Float32Array(16);o[0]=f/aspect;o[5]=f;o[10]=(far+near)/(near-far);o[11]=-1;o[14]=2*far*near/(near-far);return o;}
+  function normalize3(v){const d=Math.hypot(...v)||1;return v.map(x=>x/d);}
+  function cross(a,b){return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];}
+  function lookAt(eye,ctr,up){const z=normalize3([eye[0]-ctr[0],eye[1]-ctr[1],eye[2]-ctr[2]]),x=normalize3(cross(up,z)),y=cross(z,x);return new Float32Array([x[0],y[0],z[0],0,x[1],y[1],z[1],0,x[2],y[2],z[2],0,-x[0]*eye[0]-x[1]*eye[1]-x[2]*eye[2],-y[0]*eye[0]-y[1]*eye[1]-y[2]*eye[2],-z[0]*eye[0]-z[1]*eye[1]-z[2]*eye[2],1]);}
+  function modelmat(x,y,z,sx,sy,sz,rotation=0){const c=Math.cos(rotation),s=Math.sin(rotation);return new Float32Array([c*sx,0,-s*sx,0,0,sy,0,0,s*sz,0,c*sz,0,x,y,z,1]);}
+  function projectPt(vp,p,width,height){const [x,y,z]=p;let px=vp[0]*x+vp[4]*y+vp[8]*z+vp[12],py=vp[1]*x+vp[5]*y+vp[9]*z+vp[13],w=vp[3]*x+vp[7]*y+vp[11]*z+vp[15];if(w<=0)return null;return {x:(px/w*.5+.5)*width,y:(1-(py/w*.5+.5))*height,w};}
+  class Renderer{
+    constructor(canvas){this.canvas=canvas;this.gl=canvas.getContext('webgl',{antialias:true,alpha:false,depth:true,preserveDrawingBuffer:false,powerPreference:'high-performance'});if(!this.gl)throw Error('WebGL is not available');const gl=this.gl;
+      const program=gl.createProgram();gl.attachShader(program,shader(gl,gl.VERTEX_SHADER,vs));gl.attachShader(program,shader(gl,gl.FRAGMENT_SHADER,fs));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);
+      this.prog=program;this.loc={pos:gl.getAttribLocation(program,'aPos'),normal:gl.getAttribLocation(program,'aNorm'),model:gl.getUniformLocation(program,'uModel'),vp:gl.getUniformLocation(program,'uVP'),color:gl.getUniformLocation(program,'uColor'),camera:gl.getUniformLocation(program,'uCamera'),glow:gl.getUniformLocation(program,'uGlow')};
+      this.geos={cube:cubemesh(gl),cylinder:cylindermesh(gl),sphere:spheremesh(gl)};
+      gl.enable(gl.DEPTH_TEST);gl.enable(gl.CULL_FACE);gl.cullFace(gl.BACK);gl.clearColor(.026,.071,.119,1);
+      this.camera={yaw:.48,pitch:1.01,dist:38,targetX:0,targetZ:0};
+      this.width=0;this.height=0;this.viewProj=identity();this.eye=[0,0,0];this.now=0;this.bindEvents();
+    }
+    resize(){const r=this.canvas.getBoundingClientRect();const dpr=Math.min(window.devicePixelRatio||1,1.7),w=Math.max(2,Math.round(r.width*dpr)),h=Math.max(2,Math.round(r.height*dpr));if(w!==this.canvas.width||h!==this.canvas.height){this.canvas.width=w;this.canvas.height=h;this.gl.viewport(0,0,w,h);}this.width=r.width;this.height=r.height;}
+    bindEvents(){let start=null,dragged=false;const c=this.canvas;
+      c.addEventListener('pointerdown',e=>{c.setPointerCapture(e.pointerId);start={x:e.clientX,y:e.clientY,prevX:e.clientX,prevY:e.clientY};dragged=false;});
+      c.addEventListener('pointermove',e=>{if(!start)return;const dx=e.clientX-start.prevX,dy=e.clientY-start.prevY;start.prevX=e.clientX;start.prevY=e.clientY;if(Math.abs(e.clientX-start.x)+Math.abs(e.clientY-start.y)>5)dragged=true;if(dragged){this.camera.yaw=clamp(this.camera.yaw-dx*.005,-.9,1.7);this.camera.pitch=clamp(this.camera.pitch+dy*.005,.35,1.45);}});
+      const done=e=>{if(!start)return;if(!dragged){const r=c.getBoundingClientRect();this.pick(e.clientX-r.left,e.clientY-r.top);}start=null;};c.addEventListener('pointerup',done);c.addEventListener('pointercancel',()=>{start=null;});
+      c.addEventListener('wheel',e=>{e.preventDefault();this.camera.dist=clamp(this.camera.dist+Math.sign(e.deltaY)*2.3,15,60);},{passive:false});
+    }
+    pick(x,y){let nearest=null,dist=26;for(const a of state.agents){const p=projectPt(this.viewProj,[a.x,1.65,a.z],this.width,this.height);if(!p)continue;const d=Math.hypot(p.x-x,p.y-y);if(d<dist){nearest=a;dist=d;}}if(nearest){selectAgent(nearest.id);}else{const room=DEPTS.map(d=>{const p=projectPt(this.viewProj,[d.x,.2,d.z],this.width,this.height);return {d,dist:p?Math.hypot(p.x-x,p.y-y):Infinity};}).sort((a,b)=>a.dist-b.dist)[0];if(room&&room.dist<60){activeDept=room.d.id;$('#dept-filter').value=activeDept;renderDeptTabs();renderRoster();}}}
+    box(x,y,z,sx,sy,sz,color,rot=0,glow=0){this.draw('cube',x,y,z,sx,sy,sz,color,rot,glow);}
+    cylinder(x,y,z,sx,sy,sz,color,rot=0,glow=0){this.draw('cylinder',x,y,z,sx,sy,sz,color,rot,glow);}
+    sphere(x,y,z,sx,sy,sz,color,rot=0,glow=0){this.draw('sphere',x,y,z,sx,sy,sz,color,rot,glow);}
+    draw(type,x,y,z,sx,sy,sz,color,rotation=0,glow=0){const gl=this.gl,loc=this.loc,m=this.geos[type];gl.bindBuffer(gl.ARRAY_BUFFER,m.pos);gl.vertexAttribPointer(loc.pos,3,gl.FLOAT,false,0,0);gl.enableVertexAttribArray(loc.pos);gl.bindBuffer(gl.ARRAY_BUFFER,m.norm);gl.vertexAttribPointer(loc.normal,3,gl.FLOAT,false,0,0);gl.enableVertexAttribArray(loc.normal);gl.uniformMatrix4fv(loc.model,false,modelmat(x,y,z,sx,sy,sz,rotation));const rgb=typeof color==='string'?h2rgb(color):color;gl.uniform3fv(loc.color,rgb);gl.uniform1f(loc.glow,glow);gl.drawArrays(gl.TRIANGLES,0,m.count);}
+    frame(now){this.now=now;this.resize();const gl=this.gl,c=this.camera;const eye=[c.targetX+Math.sin(c.yaw)*c.dist*Math.cos(c.pitch),Math.sin(c.pitch)*c.dist,c.targetZ+Math.cos(c.yaw)*c.dist*Math.cos(c.pitch)];this.eye=eye;const target=[c.targetX,0,c.targetZ];this.viewProj=mult(perspective(Math.PI/3.15,this.width/this.height,.1,150),lookAt(eye,target,[0,1,0]));
+      gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(this.prog);gl.uniformMatrix4fv(this.loc.vp,false,this.viewProj);gl.uniform3fv(this.loc.camera,eye);
+      this.drawFloor();this.drawRooms();this.drawFurniture();this.drawAgents();this.updateLabels();
+    }
+    drawFloor(){
+      this.box(0,-.46,0,36,.65,25.5,'#101d30');this.box(0,-.12,0,35.6,.045,25.1,'#182d40');
+      // Delicate grid lines create spatial reference for the 3D scene.
+      for(let x=-17.1;x<=17.1;x+=2.1)this.box(x,-.085,0,.016,.015,25,'#294457');
+      for(let z=-11.9;z<=11.9;z+=2)this.box(0,-.083,z,35.4,.012,.016,'#2b4356');
+      this.box(0,-.025,-.3,35.2,.018,.64,'#213e51');
+      this.box(0,-.014,.1,35.2,.02,.045,'#37a7a1',0,.15);
+      // Safety rail along outer edges.
+      this.box(-17.72,.12,0,.15,.34,25.5,'#2b5264');this.box(17.72,.12,0,.15,.34,25.5,'#2b5264');
+      this.box(0,.12,-12.52,35.5,.34,.14,'#2b5264');this.box(0,.12,12.52,35.5,.34,.14,'#2b5264');
+    }
+    drawRooms(){
+      for(const d of DEPTS){const col=h2rgb(d.color);const floor=col.map(c=>c*.12+.10);
+        this.box(d.x,-.018,d.z,d.w-.25,.07,d.h-.2,floor);
+        this.box(d.x,.018,d.z-d.h/2+.3,d.w-.5,.08,.06,d.color,0,.33);
+        this.box(d.x-d.w/2+.25,.24,d.z,.12,.48,d.h-.2,'#285568');
+        this.box(d.x+d.w/2-.25,.24,d.z,.12,.48,d.h-.2,'#285568');
+        const frontage=d.z<0?d.z+d.h/2-.35:d.z-d.h/2+.35;
+        const wallSpan=(d.w-.5-2.45)/2;
+        this.box(d.x-(d.w/4+.5),.2,frontage,wallSpan,.38,.11,'#24465d');
+        this.box(d.x+(d.w/4+.5),.2,frontage,wallSpan,.38,.11,'#24465d');
+        for(const side of [-1,1])this.box(d.x+side*1.22,.68,frontage,.09,1.05,.10,d.color,0,.25);
+        // rear wall: monitor strip, cyan panel and pillars
+        if(d.z<0){this.box(d.x,.53,d.z-d.h/2+.45,d.w-.7,.95,.13,'#1c364b');}
+        else { // Lower offices keep their rear architectural wall while opening a clear entrance.
+          const half=(d.w-.7-2.45)/2;
+          for(const dir of [-1,1])this.box(d.x+dir*(d.w/4+.5),.53,d.z-d.h/2+.45,half,.95,.13,'#1c364b');
+        }
+        for(let ix=-2;ix<=2;ix++)this.box(d.x+ix*(d.w-1)/5,.74,d.z-d.h/2+.53,.07,.62,.08,'#35687a');
+        this.box(d.x,.95,d.z-d.h/2+.56,2.8,.095,.09,d.color,0,.42);
+      }
+      // Hallway lounge & meeting table at center between sections.
+      this.box(0,.025,.05,4.5,.045,1.55,'#224c5a');
+      for(let x of [-15.6,15.6])for(let z of [-10.4,10.8])this.drawPlant(x,z,1.1);
+    }
+    drawPlant(x,z,size=1){this.cylinder(x,.25*size,z,.72*size,.5*size,.72*size,'#355368');this.cylinder(x,.48*size,z,.3*size,.3*size,.3*size,'#27685f');for(let j=0;j<4;j++){
+      const theta=j*Math.PI*.5;this.sphere(x+Math.cos(theta)*.22*size,.85*size,z+Math.sin(theta)*.22*size,.46*size,.72*size,.46*size,j%2?'#388e73':'#2a735c');
+    }this.sphere(x,1.15*size,z,.5*size,.6*size,.5*size,'#42ac84');}
+    drawDesk(x,z,d,idx){
+      this.box(x,.65,z,1.48,.14,.85,'#557285');
+      this.box(x,.31,z,1.33,.09,.75,'#1a3246');
+      for(const sx of [-.61,.61])for(const sz of [-.29,.29])this.box(x+sx,.3,z+sz,.09,.57,.09,'#34495b');
+      this.box(x,1.11,z-.06,.86,.60,.10,'#081a2c');
+      this.box(x,1.11,z,.72,.46,.035,d.color,0,.36);
+      this.box(x,1.11,z+.025,.62,.36,.024,'#14334a');
+      this.box(x,1.11,z+.043,.5,.10,.025,d.color,0,.48);
+      this.box(x,1.12,z+.046,.42,.05,.028,'#91d6d7',0,.42);
+      this.box(x,.84,z-.04,.09,.13,.07,'#2b4351');
+      this.box(x,.75,z+.29,.69,.02,.21,'#0f2438');
+      this.box(x+.58,.79,z+.3,.11,.08,.12,idx%2?'#3b8c91':'#6d8397');
+      // chair behind desk
+      this.cylinder(x,.33,z-.66,.53,.15,.53,'#203a4e');
+      this.box(x,.75,z-.83,.67,.66,.20,'#284c61');
+      this.cylinder(x,.15,z-.66,.10,.26,.10,'#527386');
+    }
+    drawFurniture(){
+      for(const d of DEPTS){
+        const slots=deskSlots;
+        for(let i=0;i<slots.length;i++)this.drawDesk(d.x+slots[i][0],d.z+slots[i][1],d,i);
+        this.box(d.x+d.w/2-1.15,.48,d.z-d.h/2+1.32,1.05,.95,.56,'#2c5163');
+        this.box(d.x+d.w/2-1.15,1,d.z-d.h/2+1.62,.87,.07,.08,d.color,0,.25);
+        this.drawPlant(d.x-d.w/2+1.02,d.z+d.h/2-1.3,.78);
+      }
+      // Architectural upgrade: glassy meeting board, lounge, reception and garden zones.
+      // Central 4K-style virtual display; no external textures or image downloads.
+      this.box(0,2.05,-11.96,6.4,2.28,.18,'#243a58');
+      this.box(0,2.05,-11.84,5.9,1.85,.06,'#13354a');
+      this.box(0,2.72,-11.80,4.9,.13,.05,'#42c7b6',0,.46);
+      this.box(0,2.23,-11.77,3.7,.07,.04,'#84bbff',0,.40);
+      this.box(0,1.78,-11.77,4.5,.06,.04,'#478f9a');
+      this.box(0,1.45,-11.77,3.1,.05,.04,'#42c7b6');
+      // Soft architectural frames/windows at perimeter.
+      for(const xx of [-12.4,-8.7,8.7,12.4]){
+        this.box(xx,2.15,-12.24,2.5,2.6,.13,'#31586e');
+        this.box(xx,2.15,-12.14,2.15,2.28,.04,'#417e93',0,.12);
+        this.box(xx,2.15,-12.04,.055,2.28,.06,'#c4e7f0');
+      }
+      // Resting lounge & collaborative desks at the north-south atrium.
+      this.box(-4.4,.32,0,1.25,.46,1.4,'#32616a');
+      this.box(-4.4,.75,-.49,1.4,.58,.28,'#4f8093');
+      this.box(4.4,.32,0,1.25,.46,1.4,'#32616a');
+      this.box(4.4,.75,-.49,1.4,.58,.28,'#4f8093');
+      for(const px of [-3.55,3.55]){this.cylinder(px,.46,.62,.38,.08,.38,'#e8bc82');}
+      // Meeting area and reception desk
+      this.box(0,.55,.05,3.25,.2,.86,'#3c6876');
+      this.box(0,.28,.05,1.7,.54,.5,'#214150');
+      for(let x of [-1.4,-.46,.46,1.4]){this.cylinder(x,.27,1,.46,.13,.46,'#26495d');this.box(x,.64,1.27,.42,.6,.11,'#2d5369');}
+      this.box(-15,.52,0,2.05,.92,.74,'#30556b');this.box(-15,1.02,.04,1.48,.12,.08,'#4fe9cd',0,.38);
+      this.box(15,.72,.05,.96,1.44,.95,'#2d4358');this.box(15,1.1,.55,.56,.36,.04,'#6beac8',0,.5);
+      // Floating signage on the outer rear wall
+      this.box(0,2.65,-12.45,9.3,1.1,.15,'#153a50');this.box(0,3.26,-12.45,9.2,.09,.2,'#35c8ad',0,.9);
+    }
+    drawAgents(){
+      for(const a of state.agents){
+        const d=dept(a.dept);const resting=a.rest>0;const elapsed=this.now*.001;
+        const walking=!!a.isWalking;
+        const bob=Math.sin(elapsed*(walking?8:1.5)+a.offset)*(walking?.07:.027);
+        const skin=['#edbb92','#deaa86','#d2a17e','#f0c9a4'][a.id%4];        const shirt=d.color;const chairZ=a.z;
+        if(a.id===selectedAgentId){this.cylinder(a.x,.024,chairZ,.86,.07,.86,'#60ffe6',0,.5);this.cylinder(a.x,.069,chairZ,.47,.07,.47,'#ddfff7',0,.55);}
+        this.cylinder(a.x,.53+bob,chairZ,.42,.37,.34,shirt);
+        this.box(a.x,.9+bob,chairZ,.47,.65,.35,shirt);
+        // arms / hands animated by working status
+        const handWave=resting?0:Math.sin(elapsed*9+a.offset)*.065;
+        this.box(a.x-.34,.82+bob+handWave,chairZ+.12,.15,.45,.15,skin,.15);
+        this.box(a.x+.34,.82+bob-handWave,chairZ+.12,.15,.45,.15,skin,-.15);
+        this.sphere(a.x,1.36+bob,chairZ,.41,.44,.39,skin);
+        this.sphere(a.x,1.59+bob,chairZ-.08,.44,.22,.4,a.id%3===0?'#17273a':a.id%3===1?'#2c2435':'#342b29');
+        // face toward front of view (+z)
+        this.sphere(a.x-.1,1.37+bob,chairZ+.2,.047,.045,.027,'#152534');
+        this.sphere(a.x+.1,1.37+bob,chairZ+.2,.047,.045,.027,'#152534');
+        this.box(a.x,.38,chairZ+.13,.14,.4,.18,'#1b354a');
+        if(resting)this.sphere(a.x+.31,1.78,chairZ,.08,.08,.08,'#ffc46e',0,.65);
+      }
+    }
+    updateLabels(){
+      const layer=$('#labels-layer');const labels=DEPTS.map(d=>{
+        const p=projectPt(this.viewProj,[d.x,1.72,d.z-d.h/2+.5],this.width,this.height);
+        if(!p||p.x<-80||p.x>this.width+80||p.y<0||p.y>this.height)return '';
+        return `<div class="dept-label" style="left:${p.x}px;top:${p.y}px"><i style="background:${d.color}"></i>${escapeHTML(d.tag)}</div>`;
+      }).join('');layer.innerHTML=labels;
+      const a=state.agents[selectedAgentId];if(a){const p=projectPt(this.viewProj,[a.x,2.1,a.z],this.width,this.height),marker=$('#selected-marker');marker.hidden=!p;if(p){marker.style.left=p.x+'px';marker.style.top=p.y+'px';marker.querySelector('b').textContent=a.name;}}
+      const speechLayer=$('#speech-layer');let shown=0;
+      speechLayer.innerHTML=(state.showBubbles?state.agents:[]).filter(a=>a.speech&&a.speechUntil>this.now).sort((a,b)=>b.speechUntil-a.speechUntil).map(a=>{
+        if(shown>=3)return '';const p=projectPt(this.viewProj,[a.x,2.5,a.z],this.width,this.height);if(!p||p.x<55||p.x>this.width-55||p.y<100||p.y>this.height-40)return '';shown++;
+        return `<div class="speech-bubble" style="left:${p.x}px;top:${p.y}px">${escapeHTML(a.speech)}</div>`;
+      }).join('');
+    }
+  }
+
+  // Software 3D fallback: renders the same world through perspective-projected
+  // polygons when a browser/remote VM has WebGL disabled by policy.
+  class CanvasRenderer {
+    constructor(canvas){
+      this.canvas=canvas;this.ctx=canvas.getContext('2d');if(!this.ctx)throw Error('Không có Canvas 2D');
+      this.camera={yaw:.48,pitch:1.01,dist:38,targetX:0,targetZ:0};
+      this.width=0;this.height=0;this.viewProj=identity();this.eye=[0,0,0];this.now=0;
+      this.polygons=[];this.lastRendered=0;Renderer.prototype.bindEvents.call(this);
+    }
+    resize(){const r=this.canvas.getBoundingClientRect();const dpr=Math.min(devicePixelRatio||1,1.5),w=Math.max(2,Math.round(r.width*dpr)),h=Math.max(2,Math.round(r.height*dpr));if(this.canvas.width!==w||this.canvas.height!==h){this.canvas.width=w;this.canvas.height=h;}this.width=r.width;this.height=r.height;this.ctx.setTransform(dpr,0,0,dpr,0,0);}
+    addFace(vertices,color,shade=.8,glow=0){
+      const projected=vertices.map(p=>projectPt(this.viewProj,p,this.width,this.height));
+      if(projected.some(p=>!p))return;
+      const depth=projected.reduce((s,p)=>s+p.w,0)/projected.length;
+      const base=typeof color==='string'?h2rgb(color):color;
+      const r=base.map(x=>Math.round(clamp(x*(shade+glow*.4),0,1)*255));
+      this.polygons.push({pts:projected,depth,color:`rgb(${r[0]},${r[1]},${r[2]})`});
+    }
+    box(x,y,z,sx,sy,sz,color,rot=0,glow=0){
+      const c=Math.cos(rot),s=Math.sin(rot);
+      const p=(px,py,pz)=>[x+c*px*sx+s*pz*sz,y+py*sy,z-s*px*sx+c*pz*sz];
+      const a=p(-.5,-.5,-.5),b=p(.5,-.5,-.5),cc=p(.5,.5,-.5),d=p(-.5,.5,-.5);
+      const e=p(-.5,-.5,.5),f=p(.5,-.5,.5),g=p(.5,.5,.5),h=p(-.5,.5,.5);
+      this.addFace([e,f,g,h],color,.85,glow);this.addFace([b,a,d,cc],color,.67,glow);
+      this.addFace([f,b,cc,g],color,.62,glow);this.addFace([a,e,h,d],color,.75,glow);
+      this.addFace([h,g,cc,d],color,1.05,glow);this.addFace([a,b,f,e],color,.52,glow);
+    }
+    cylinder(x,y,z,sx,sy,sz,color,rot=0,glow=0){
+      const n=10,ring=[];for(let i=0;i<n;i++){const t=i*Math.PI*2/n;ring.push([x+Math.cos(t)*sx*.5,y+sy*.5,z+Math.sin(t)*sz*.5]);}
+      this.addFace(ring,color,1.05,glow);
+      for(let i=0;i<n;i++){const j=(i+1)%n,a=ring[i],b=ring[j];this.addFace([a,b,[b[0],y-sy*.5,b[2]],[a[0],y-sy*.5,a[2]]],color,.63+.3*(Math.cos(i*Math.PI*2/n)+1)/2,glow);}
+    }
+    sphere(x,y,z,sx,sy,sz,color,rot=0,glow=0){
+      const c=projectPt(this.viewProj,[x,y,z],this.width,this.height),right=projectPt(this.viewProj,[x+sx*.5,y,z],this.width,this.height),up=projectPt(this.viewProj,[x,y+sy*.5,z],this.width,this.height);
+      if(!c||!right||!up)return;
+      const base=typeof color==='string'?h2rgb(color):color;
+      const rr=base.map(v=>Math.round(clamp(v*(.91+glow*.3),0,1)*255));
+      this.polygons.push({depth:c.w,circle:{x:c.x,y:c.y,rx:Math.max(1,Math.abs(right.x-c.x)),ry:Math.max(1,Math.abs(up.y-c.y))},color:`rgb(${rr.join(',')})`});
+    }
+    drawFloor(){Renderer.prototype.drawFloor.call(this);}
+    drawRooms(){Renderer.prototype.drawRooms.call(this);}
+    drawFurniture(){Renderer.prototype.drawFurniture.call(this);}
+    drawPlant(x,z,size){Renderer.prototype.drawPlant.call(this,x,z,size);}
+    drawDesk(x,z,d,i){Renderer.prototype.drawDesk.call(this,x,z,d,i);}
+    drawAgents(){Renderer.prototype.drawAgents.call(this);}
+    updateLabels(){Renderer.prototype.updateLabels.call(this);}
+    pick(x,y){Renderer.prototype.pick.call(this,x,y);}
+    frame(now){
+      if(now-this.lastRendered<32)return;
+      this.lastRendered=now;this.now=now;this.resize();
+      const c=this.camera;this.eye=[c.targetX+Math.sin(c.yaw)*c.dist*Math.cos(c.pitch),Math.sin(c.pitch)*c.dist,c.targetZ+Math.cos(c.yaw)*c.dist*Math.cos(c.pitch)];
+      this.viewProj=mult(perspective(Math.PI/3.15,this.width/this.height,.1,150),lookAt(this.eye,[c.targetX,0,c.targetZ],[0,1,0]));
+      this.polygons=[];this.drawFloor();const floorPolys=this.polygons;this.polygons=[];this.drawRooms();const roomPolys=this.polygons;this.polygons=[];this.drawFurniture();this.drawAgents();const objectPolys=this.polygons;
+      const ctx=this.ctx;const g=ctx.createLinearGradient(0,0,0,this.height);g.addColorStop(0,'#0c2034');g.addColorStop(1,'#091320');ctx.fillStyle=g;ctx.fillRect(0,0,this.width,this.height);
+      for(const polys of [floorPolys,roomPolys,objectPolys])polys.sort((a,b)=>b.depth-a.depth);
+      for(const poly of [...floorPolys,...roomPolys,...objectPolys]){ctx.fillStyle=poly.color;
+        if(poly.circle){const q=poly.circle;ctx.beginPath();ctx.ellipse(q.x,q.y,q.rx,q.ry,0,0,Math.PI*2);ctx.fill();continue;}
+        const pts=poly.pts;ctx.beginPath();ctx.moveTo(pts[0].x,pts[0].y);for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i].x,pts[i].y);ctx.closePath();ctx.fill();
+      }
+      this.updateLabels();
+    }
+  }
+
+  function wire(){
+    $('#new-project').addEventListener('click',newProjectModal);
+    $('#channel-btn').addEventListener('click',openChannelsModal);
+    $('#import-btn').addEventListener('click',()=>$('#import-file').click());
+    $('#import-file').addEventListener('change',e=>importBackup(e.target.files?.[0]));
+    $('#chat-mode-btn').addEventListener('click',()=>{
+      const modes=['adaptive','frequent','off'];const labels={adaptive:'Thông minh',frequent:'Thường xuyên',off:'Tắt'};
+      state.conversationMode=modes[(modes.indexOf(state.conversationMode)+1)%modes.length];
+      nextChatter=3;$('#chat-mode-btn').textContent=`💬 Tự trò chuyện: ${labels[state.conversationMode]}`;
+      toast(`Chế độ Agent tự trò chuyện: ${labels[state.conversationMode]}.`);save();
+    });
+    $('#autonomy-btn').addEventListener('click',()=>{
+      state.auto=!state.auto;$('#autonomy-btn').textContent=`🤖 Agent tự chủ: ${state.auto?'BẬT':'TẮT'}`;
+      $('#autonomy-btn').classList.toggle('off',!state.auto);toast(state.auto?'Agent tự đưa ra quyết định.':'Đã tắt quyết định tự động. Nhiệm vụ đã giao vẫn tiếp tục.');save();
+    });
+    $('#meeting-btn').addEventListener('click',meeting);
+    $('#report-btn').addEventListener('click',report);
+    $('#save-btn').addEventListener('click',downloadSave);
+    $('#reset-btn').addEventListener('click',()=>{
+      if(!window.confirm('Tạo ván chơi mới? Tiến trình hiện tại trên thiết bị sẽ bị thay thế. Hãy xuất bản lưu nếu muốn giữ lại.'))return;
+      state=engine.upgrade(initialState());selectedAgentId=0;selectedProjectId=1;activeDept='all';$('#agent-search').value='';$('#dept-filter').value='all';renderAll();save();toast('Đã tạo công ty mới với 25 AI Agent.');
+    });
+    $('#close-modal').addEventListener('click',hideModal);
+    $('#modal-backdrop').addEventListener('click',e=>{if(e.target===$('#modal-backdrop'))hideModal();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')hideModal();});
+    $('#agent-search').addEventListener('input',renderRoster);
+    $('#dept-filter').addEventListener('change',e=>{activeDept=e.target.value;renderRoster();renderDeptTabs();});
+    $$('.speed-controls button').forEach(btn=>btn.addEventListener('click',()=>{activeSpeed=Number(btn.dataset.speed);$$('.speed-controls button').forEach(b=>b.classList.toggle('active',b===btn));toast(activeSpeed?`Tốc độ mô phỏng: ${activeSpeed}×`:'Đã tạm dừng mô phỏng.');}));
+    $('#zoom-in').addEventListener('click',()=>{if(scene)scene.camera.dist=clamp(scene.camera.dist-5,15,60);});
+    $('#zoom-out').addEventListener('click',()=>{if(scene)scene.camera.dist=clamp(scene.camera.dist+5,15,60);});
+    $('#reset-camera').addEventListener('click',()=>{if(scene)scene.camera={yaw:.48,pitch:1.01,dist:38,targetX:0,targetZ:0};});
+    window.addEventListener('beforeunload',()=>save());
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)save();lastFrame=performance.now();});
+  }
+  function renderAll(){updateKPIs();renderVirtualChannels();renderProjects();renderActivity();renderRoster();renderDeptTabs();renderDetail();}
+  function loop(now){
+    const dt=clamp((now-lastFrame)/1000,0,.16);lastFrame=now;
+    if(activeSpeed)step(dt*2.5*activeSpeed);
+    if(scene){try{scene.frame(now);}catch(err){console.error(err);$('#webgl-error').hidden=false;scene=null;}}
+    if(now-lastUiAt>850){updateKPIs();renderVirtualChannels();updateDetail();renderProjects();renderActivity();renderDeptTabs();lastUiAt=now;}
+    if(now-lastSaveAt>6500){save();lastSaveAt=now;}
+    requestAnimationFrame(loop);
+  }
+  function init(){
+    state=engine.upgrade(load()||initialState());
+    state.conversationMode??='adaptive';state.showBubbles??=true;
+    $('#autonomy-btn').textContent=`🤖 Agent tự chủ: ${state.auto?'BẬT':'TẮT'}`;$('#autonomy-btn').classList.toggle('off',!state.auto);state.posts??=[];state.nextPostId??=Math.max(1,...state.posts.map(p=>p.id+1));
+    $('#chat-mode-btn').textContent=`💬 Tự trò chuyện: ${{adaptive:'Thông minh',frequent:'Thường xuyên',off:'Tắt'}[state.conversationMode]??'Thông minh'}`;
+    for(const d of DEPTS){const opt=document.createElement('option');opt.value=d.id;opt.textContent=d.name;$('#dept-filter').appendChild(opt);}
+    if(state.agents.some(a=>!a.task&&!a.rest))for(const a of state.agents){if(!a.task&&!a.rest)a.task=newTask(state,a);}
+    wire();renderAll();
+    try{scene=new Renderer($('#scene'));}catch(err){console.warn('WebGL không khả dụng; dùng chế độ dựng hình 3D bằng Canvas:',err.message);try{scene=new CanvasRenderer($('#scene'));$('.stage-live').innerHTML='<span></span> LIVE 3D WORLD · COMPATIBILITY MODE';}catch(fallbackErr){console.error(fallbackErr);$('#webgl-error').hidden=false;toast('Không thể khởi động chế độ đồ họa.',true);}}
+    lastFrame=performance.now();requestAnimationFrame(loop);
+    window.__mediaTechTest={getState:()=>structuredClone(state),selectAgent,step:(n)=>{step(n);renderAll();},newProject:()=>newProjectModal(),report,renderer:()=>!!scene,channels:openChannelsModal,publish:publishVirtualPost,requestRevision:reviseVirtualPost,meeting,engine,exportState:()=>JSON.stringify(state),autoToggle:()=>$('#autonomy-btn').click()};
+  }
+  init();
+})();
+
+</script>
+</body>
+</html>
