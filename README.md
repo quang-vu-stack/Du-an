@@ -1,11 +1,12 @@
 # Du-an
 
-Repository quản lý mã nguồn các dự án.
+Kho mã nguồn các dự án.
 
-## MEDIA Agent World 3D
-- [Mở thư mục MEDIA Agent World](media-agent-world/)
-- [Bản HTML V0.5 (standalone)](media-agent-world/v0.5/index.html)
-- [Mã nguồn V0.6 — Kenney 3D](media-agent-world/v0.6/index.html)
-- [Hướng dẫn bổ sung tài nguyên V0.6](media-agent-world/UPLOAD_REMAINING_ASSETS.md)
+## MEDIA Agent World 3D (Gemini × ChatGPT)
 
-**Trạng thái:** mã HTML và hướng dẫn đã được đồng bộ; file mô hình/texture và gói ZIP V0.6 còn cần upload riêng. Xem README trong thư mục dự án để tránh sửa nhầm phiên bản.
+- **[Bản V0.6 đầy đủ — dùng để tiếp tục phát triển](media-agent-world/v0.6/)**: 25 AI Agent, Kenney 3D, nguồn HTML/JS, các file GLB/FBX, hình ảnh, kiểm thử và tài liệu.
+- [Bản V0.5 để dự phòng](media-agent-world/v0.5/index.html)
+- [Quy tắc quản lý phiên bản](media-agent-world/README.md)
+- [Kế hoạch nâng cấp V0.7](media-agent-world/V07_ROADMAP.md)
+
+Đường dẫn `Bản v6/MEDIA_AGENT_WORLD_V06/` là bản upload gốc; **v0.6/** là thư mục chuẩn dùng để phát triển. Đã đồng bộ toàn bộ 28 file từ bản upload gốc theo cùng blob SHA, không sửa nội dung mã.
